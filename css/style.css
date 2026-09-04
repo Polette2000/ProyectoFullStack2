@@ -1,0 +1,628 @@
+/* =====================================================
+   PERFULANDIA
+   ESTILOS GENERALES
+===================================================== */
+
+:root {
+
+    --rosa-principal: #d9a7b0;
+    --rosa-oscuro: #bf8792;
+    --rosa-claro: #f7e8eb;
+
+    --beige: #f4efe7;
+    --beige-claro: #faf8f4;
+
+    --gris-claro: #f2f2f2;
+    --gris: #777777;
+
+    --texto: #3f3f3f;
+    --blanco: #ffffff;
+
+}
+
+
+/* =====================================================
+   GENERAL
+===================================================== */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+
+    margin: 0;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
+    color: var(--texto);
+
+    background-color: var(--blanco);
+
+}
+
+
+h1,
+h2,
+h3 {
+
+    font-weight: 600;
+
+}
+
+
+a {
+
+    text-decoration: none;
+
+}
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar-perfulandia {
+
+    background-color: var(--blanco);
+
+    padding-top: 15px;
+    padding-bottom: 15px;
+
+    border-bottom: 1px solid #eeeeee;
+
+}
+
+
+.logo {
+
+    width: 45px;
+    height: 45px;
+
+    object-fit: contain;
+
+    margin-right: 10px;
+
+}
+
+
+.nombre-marca {
+
+    font-size: 1.4rem;
+
+    font-weight: 600;
+
+    color: var(--texto);
+
+}
+
+
+.navbar .nav-link {
+
+    color: var(--texto);
+
+    margin-left: 8px;
+    margin-right: 8px;
+
+    transition: 0.3s;
+
+}
+
+
+.navbar .nav-link:hover {
+
+    color: var(--rosa-oscuro);
+
+}
+
+
+.navbar .nav-link.active {
+
+    color: var(--rosa-oscuro);
+
+    font-weight: 600;
+
+}
+
+
+/* =====================================================
+   BOTONES
+===================================================== */
+
+.btn-perfulandia {
+
+    background-color: var(--rosa-principal);
+
+    border: 1px solid var(--rosa-principal);
+
+    color: var(--blanco);
+
+    border-radius: 30px;
+
+    padding-left: 25px;
+    padding-right: 25px;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-perfulandia:hover {
+
+    background-color: var(--rosa-oscuro);
+
+    border-color: var(--rosa-oscuro);
+
+    color: var(--blanco);
+
+}
+
+
+.btn-outline-perfulandia {
+
+    background-color: transparent;
+
+    border: 1px solid var(--rosa-principal);
+
+    color: var(--rosa-oscuro);
+
+    border-radius: 30px;
+
+    padding-left: 22px;
+    padding-right: 22px;
+
+    transition: 0.3s;
+
+}
+
+
+.btn-outline-perfulandia:hover {
+
+    background-color: var(--rosa-principal);
+
+    color: var(--blanco);
+
+}
+
+
+/* =====================================================
+   CARRITO
+===================================================== */
+
+.carrito-link {
+
+    font-size: 1.7rem;
+
+    color: var(--texto);
+
+}
+
+
+.carrito-link:hover {
+
+    color: var(--rosa-oscuro);
+
+}
+
+
+.contador-carrito {
+
+    background-color: var(--rosa-principal);
+
+    color: white;
+
+    font-size: 0.65rem;
+
+}
+
+
+/* =====================================================
+   HERO
+===================================================== */
+
+.hero {
+
+    background-color: var(--beige-claro);
+
+    padding-top: 70px;
+    padding-bottom: 70px;
+
+}
+
+
+.min-vh-75 {
+
+    min-height: 70vh;
+
+}
+
+
+.hero-subtitulo {
+
+    color: var(--rosa-oscuro);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 0.85rem;
+
+    font-weight: 600;
+
+}
+
+
+.hero h1 {
+
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+
+    line-height: 1.05;
+
+    margin-top: 15px;
+    margin-bottom: 25px;
+
+}
+
+
+.hero-descripcion {
+
+    max-width: 520px;
+
+    font-size: 1.1rem;
+
+    color: var(--gris);
+
+    line-height: 1.8;
+
+    margin-bottom: 30px;
+
+}
+
+
+.hero-imagen {
+
+    background-color: var(--rosa-claro);
+
+    padding: 20px;
+
+    border-radius: 40px;
+
+}
+
+
+.hero-imagen img {
+
+    width: 100%;
+
+    height: 550px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+
+}
+
+
+/* =====================================================
+   BENEFICIOS
+===================================================== */
+
+.beneficios {
+
+    background-color: var(--blanco);
+
+}
+
+
+.beneficio {
+
+    padding: 30px;
+
+}
+
+
+.beneficio i {
+
+    font-size: 2rem;
+
+    color: var(--rosa-oscuro);
+
+}
+
+
+.beneficio h3 {
+
+    margin-top: 15px;
+
+    font-size: 1.2rem;
+
+}
+
+
+.beneficio p {
+
+    color: var(--gris);
+
+}
+
+
+/* =====================================================
+   TITULOS SECCIONES
+===================================================== */
+
+.section-subtitulo {
+
+    color: var(--rosa-oscuro);
+
+    text-transform: uppercase;
+
+    letter-spacing: 2px;
+
+    font-size: 0.8rem;
+
+    font-weight: bold;
+
+}
+
+
+.section-descripcion {
+
+    color: var(--gris);
+
+}
+
+
+/* =====================================================
+   PRODUCTOS
+===================================================== */
+
+.productos-destacados {
+
+    background-color: var(--gris-claro);
+
+}
+
+
+.producto-card {
+
+    border: none;
+
+    border-radius: 20px;
+
+    overflow: hidden;
+
+    background-color: var(--blanco);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+
+}
+
+
+.producto-card:hover {
+
+    transform: translateY(-6px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+.producto-card img {
+
+    width: 100%;
+
+    height: 330px;
+
+    object-fit: cover;
+
+}
+
+
+.producto-card .card-body {
+
+    padding: 25px;
+
+}
+
+
+.producto-categoria {
+
+    color: var(--rosa-oscuro);
+
+    font-size: 0.8rem;
+
+    text-transform: uppercase;
+
+    letter-spacing: 1px;
+
+}
+
+
+.producto-nombre {
+
+    font-size: 1.3rem;
+
+}
+
+
+.producto-precio {
+
+    font-size: 1.2rem;
+
+    font-weight: bold;
+
+    margin-top: 15px;
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================================
+   NOSOTROS HOME
+===================================================== */
+
+.home-nosotros {
+
+    background-color: var(--rosa-claro);
+
+}
+
+
+.imagen-nosotros {
+
+    width: 100%;
+
+    max-height: 480px;
+
+    object-fit: cover;
+
+    border-radius: 30px;
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+.footer {
+
+    padding-top: 60px;
+    padding-bottom: 25px;
+
+    background-color: var(--beige);
+
+}
+
+
+.footer h3 {
+
+    font-size: 1.1rem;
+
+    margin-bottom: 20px;
+
+}
+
+
+.footer-logo {
+
+    font-size: 1.7rem;
+
+}
+
+
+.footer ul li {
+
+    margin-bottom: 10px;
+
+}
+
+
+.footer a {
+
+    color: var(--texto);
+
+}
+
+
+.footer a:hover {
+
+    color: var(--rosa-oscuro);
+
+}
+
+
+.redes {
+
+    display: flex;
+
+    gap: 20px;
+
+}
+
+
+.redes a {
+
+    font-size: 1.4rem;
+
+}
+
+
+.footer hr {
+
+    margin-top: 40px;
+
+    border-color: #d8d2ca;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .hero {
+
+        text-align: center;
+
+    }
+
+
+    .hero-descripcion {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .hero-texto .d-flex {
+
+        justify-content: center;
+
+    }
+
+
+    .hero-imagen img {
+
+        height: 420px;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .hero {
+
+        padding-top: 40px;
+        padding-bottom: 40px;
+
+    }
+
+
+    .hero h1 {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .hero-imagen img {
+
+        height: 350px;
+
+    }
+
+}

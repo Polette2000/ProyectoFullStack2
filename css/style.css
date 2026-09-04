@@ -624,5 +624,140 @@ a {
         height: 350px;
 
     }
+}
 
+
+/* =========================
+   LOGIN - PERFULANDIA
+========================= */
+
+.login-body {
+    background-color: #f5f0eb;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Navbar */
+.navbar-perfulandia {
+    background-color: #f8eeee;
+}
+
+
+/* Logo / nombre navbar */
+.navbar-perfulandia .navbar-brand {
+    color: #444444;
+}
+
+.navbar-perfulandia .navbar-brand:hover {
+    color: #b6788b;
+}
+
+
+/* Tarjeta login */
+.login-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+
+/* Títulos */
+.login-card h1 {
+    color: #444444;
+}
+
+
+/* Labels */
+.login-card .form-label {
+    color: #444444;
+    font-weight: 500;
+}
+
+
+/* Inputs */
+.login-card .form-control {
+    border-radius: 10px;
+    border: 1px solid #d6d6d6;
+    padding: 10px 12px;
+}
+
+
+/* Input seleccionado */
+.login-card .form-control:focus {
+    border-color: #d9a7b5;
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(217, 167, 181, 0.25);
+}
+
+
+/* Botón principal */
+.btn-perfulandia {
+    background-color: #d9a7b5;
+    color: #ffffff;
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px;
+
+    font-weight: 500;
+}
+
+
+/* Hover botón */
+.btn-perfulandia:hover {
+    background-color: #c88f9f;
+    color: #ffffff;
+}
+
+
+/* Links */
+.login-card a {
+    color: #b6788b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-card a:hover {
+    color: #965e70;
+    text-decoration: underline;
+}
+
+
+/* Texto secundario */
+.login-card .form-text {
+    color: #777777;
+}
+
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #d9a7b5;
+    border-color: #d9a7b5;
+}
+
+
+/* Footer */
+.footer-perfulandia {
+    background-color: #f8eeee;
+    color: #666666;
+}
+
+/* Logo del navbar */
+.logo-navbar {
+    width: 65px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Logo del formulario login */
+.logo-login {
+    width: 120px;
+    height: auto;
+    object-fit: contain;
 }

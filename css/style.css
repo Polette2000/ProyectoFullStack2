@@ -79,14 +79,14 @@ a {
 
 
 .logo {
+    width: 190px;
+    height: auto;
 
-    width: 45px;
-    height: 45px;
+    transform: scale(1.4);
+    transform-origin: left center;
 
-    object-fit: contain;
-
-    margin-right: 10px;
-
+    margin-left: -55px;
+    margin-right: 55px;
 }
 
 
@@ -102,14 +102,15 @@ a {
 
 
 .navbar .nav-link {
-
     color: var(--texto);
 
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 14px;
+    margin-right: 14px;
+
+    font-size: 1.15rem;
+    font-weight: 500;
 
     transition: 0.3s;
-
 }
 
 
@@ -163,6 +164,7 @@ a {
 
 
 .btn-outline-perfulandia {
+    font-size: 1.05rem;
 
     background-color: transparent;
 
@@ -624,8 +626,162 @@ a {
         height: 350px;
 
     }
-
 }
+
+
+
+/* =========================
+   LOGIN - PERFULANDIA
+========================= */
+
+.login-body {
+    background-color: #f5f0eb;
+    min-height: 100vh;
+
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Navbar */
+.navbar-perfulandia {
+    background-color: #f8eeee;
+}
+
+
+/* Logo / nombre navbar */
+.navbar-perfulandia .navbar-brand {
+    color: #444444;
+}
+
+.navbar-perfulandia .navbar-brand:hover {
+    color: #b6788b;
+}
+
+
+/* Tarjeta login */
+.login-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+
+/* Títulos */
+.login-card h1 {
+    color: #444444;
+}
+
+
+/* Labels */
+.login-card .form-label {
+    color: #444444;
+    font-weight: 500;
+}
+
+
+/* Inputs */
+.login-card .form-control {
+    border-radius: 10px;
+    border: 1px solid #d6d6d6;
+    padding: 10px 12px;
+}
+
+
+/* Input seleccionado */
+.login-card .form-control:focus {
+    border-color: #d9a7b5;
+
+    box-shadow:
+        0 0 0 0.2rem
+        rgba(217, 167, 181, 0.25);
+}
+
+
+/* Botón principal */
+.btn-perfulandia {
+    background-color: #d9a7b5;
+    color: #ffffff;
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 11px;
+
+    font-weight: 500;
+}
+
+
+/* Hover botón */
+.btn-perfulandia:hover {
+    background-color: #c88f9f;
+    color: #ffffff;
+}
+
+
+/* Links */
+.login-card a {
+    color: #b6788b;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.login-card a:hover {
+    color: #965e70;
+    text-decoration: underline;
+}
+
+
+/* Texto secundario */
+.login-card .form-text {
+    color: #777777;
+}
+
+
+/* Checkbox */
+.form-check-input:checked {
+    background-color: #d9a7b5;
+    border-color: #d9a7b5;
+}
+
+
+/* Footer */
+.footer-perfulandia {
+    background-color: #f8eeee;
+    color: #666666;
+}
+
+/* Logo del navbar */
+.logo-navbar {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Logo del formulario login */
+.logo-login {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+}
+
+/* =========================
+   REGISTRO
+========================= */
+
+#formRegistro .form-control,
+#formRegistro .form-select {
+    border-radius: 10px;
+    border: 1px solid #d6d6d6;
+    padding: 10px 12px;
+}
+
+#formRegistro .form-control:focus,
+#formRegistro .form-select:focus {
+    border-color: #d9a7b5;
+    box-shadow: 0 0 0 0.2rem rgba(217, 167, 181, 0.25);
+}
+
 /* =====================================================
    PÁGINA PRODUCTOS
 ===================================================== */
@@ -776,5 +932,500 @@ a {
     color: var(--rosa-oscuro);
 
     margin-right: 8px;
+
+}
+/* =====================================================
+   BANNER HOME / CARRUSEL
+===================================================== */
+
+.banner-home {
+    background-color: var(--beige-claro);
+}
+
+.banner-img {
+    width: 100%;
+    height: 720px;
+    object-fit: cover;
+}
+
+/* Indicadores */
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--rosa-principal);
+    opacity: 0.6;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* Flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .banner-img {
+        height: 500px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
+/* =====================================================
+   PÁGINA NOSOTROS
+===================================================== */
+
+
+/* HERO NOSOTROS */
+
+.nosotros-hero {
+
+    background-color: var(--beige-claro);
+
+    padding-top: 90px;
+    padding-bottom: 90px;
+
+}
+
+
+.nosotros-titulo {
+
+    font-size: clamp(2.8rem, 5vw, 4.8rem);
+
+    line-height: 1.05;
+
+    margin-bottom: 30px;
+
+}
+
+
+.nosotros-descripcion {
+
+    color: var(--gris);
+
+    font-size: 1.05rem;
+
+    line-height: 1.8;
+
+    max-width: 600px;
+
+}
+
+
+.nosotros-imagen {
+
+    background-color: var(--rosa-claro);
+
+    border-radius: 40px;
+
+    padding: 40px;
+
+    text-align: center;
+
+}
+
+
+.nosotros-imagen img {
+
+    width: 100%;
+
+    height: 500px;
+
+    object-fit: contain;
+
+}
+
+
+/* =====================================================
+   MISIÓN / VISIÓN / VALORES
+===================================================== */
+
+.nuestra-esencia {
+
+    background-color: var(--blanco);
+
+}
+
+
+.esencia-card {
+
+    background-color: var(--beige-claro);
+
+    padding: 40px 30px;
+
+    border-radius: 25px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+
+}
+
+
+.esencia-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+.esencia-icono {
+
+    width: 65px;
+
+    height: 65px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin:
+        0 auto
+        20px;
+
+    background-color: var(--rosa-claro);
+
+    border-radius: 50%;
+
+}
+
+
+.esencia-icono i {
+
+    color: var(--rosa-oscuro);
+
+    font-size: 1.8rem;
+
+}
+
+
+.esencia-card h3 {
+
+    font-size: 1.3rem;
+
+    margin-bottom: 15px;
+
+}
+
+
+.esencia-card p {
+
+    color: var(--gris);
+
+    line-height: 1.7;
+
+}
+
+
+/* =====================================================
+   EXPERIENCIA
+===================================================== */
+
+.experiencia-perfulandia {
+
+    background-color: var(--rosa-claro);
+
+}
+
+
+.experiencia-perfulandia h2 {
+
+    font-size: 2.3rem;
+
+    margin-bottom: 25px;
+
+}
+
+
+.experiencia-perfulandia p {
+
+    color: var(--gris);
+
+    line-height: 1.8;
+
+}
+
+
+.experiencia-item {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 18px;
+
+    height: 100%;
+
+    background-color: var(--blanco);
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+}
+
+
+.experiencia-item i {
+
+    font-size: 1.8rem;
+
+    color: var(--rosa-oscuro);
+
+}
+
+
+.experiencia-item h3 {
+
+    font-size: 1.1rem;
+
+    margin-bottom: 5px;
+
+}
+
+
+.experiencia-item p {
+
+    margin-bottom: 0;
+
+    font-size: 0.9rem;
+
+}
+
+
+/* =====================================================
+   EQUIPO
+===================================================== */
+
+.equipo-perfulandia {
+
+    background-color: var(--beige-claro);
+
+}
+
+
+.equipo-card {
+
+    background-color: var(--blanco);
+
+    border-radius: 25px;
+
+    padding: 40px 30px;
+
+    text-align: center;
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+
+}
+
+
+.equipo-card:hover {
+
+    transform: translateY(-7px);
+
+    box-shadow:
+        0 15px 35px
+        rgba(0, 0, 0, 0.08);
+
+}
+
+
+/* CÍRCULO CON INICIAL */
+
+.avatar-equipo {
+
+    width: 95px;
+
+    height: 95px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    margin:
+        0 auto
+        25px;
+
+    border-radius: 50%;
+
+    background-color: var(--rosa-claro);
+
+    color: var(--rosa-oscuro);
+
+    font-size: 2rem;
+
+    font-weight: 600;
+
+}
+
+
+.equipo-card h3 {
+
+    font-size: 1.4rem;
+
+    margin-bottom: 5px;
+
+}
+
+
+.equipo-cargo {
+
+    color: var(--rosa-oscuro) !important;
+
+    font-weight: 600;
+
+    margin-bottom: 15px;
+
+}
+
+
+.equipo-card p {
+
+    color: var(--gris);
+
+    line-height: 1.7;
+
+}
+
+
+.equipo-redes {
+
+    color: var(--rosa-oscuro);
+
+    font-size: 1.5rem;
+
+}
+
+
+/* =====================================================
+   NOSOTROS RESPONSIVE
+===================================================== */
+
+@media (max-width: 991px) {
+
+    .nosotros-hero {
+
+        text-align: center;
+
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+    }
+
+
+    .nosotros-descripcion {
+
+        margin-left: auto;
+        margin-right: auto;
+
+    }
+
+
+    .nosotros-imagen img {
+
+        height: 400px;
+
+    }
+
+
+    .experiencia-perfulandia {
+
+        text-align: center;
+
+    }
+
+}
+
+
+@media (max-width: 576px) {
+
+    .nosotros-titulo {
+
+        font-size: 2.5rem;
+
+    }
+
+
+    .nosotros-imagen {
+
+        padding: 20px;
+
+    }
+
+
+    .nosotros-imagen img {
+
+        height: 320px;
+
+    }
+
+
+    .esencia-card,
+    .equipo-card {
+
+        padding: 30px 20px;
+
+    }
+
+
+}
+/* =====================================================
+   FOTOS EQUIPO
+===================================================== */
+
+.foto-equipo {
+
+    width: 160px;
+    height: 160px;
+
+    object-fit: cover;
+
+    border-radius: 50%;
+
+    margin-bottom: 25px;
+
+    border: 5px solid var(--rosa-claro);
+
+    box-shadow:
+        0 8px 25px
+        rgba(0, 0, 0, 0.08);
+
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s;
+
+}
+
+
+.equipo-card:hover .foto-equipo {
+
+    transform: scale(1.05);
+
+    box-shadow:
+        0 12px 30px
+        rgba(0, 0, 0, 0.12);
 
 }

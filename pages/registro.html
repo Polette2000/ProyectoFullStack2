@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Crear cuenta | Perfulandia</title>
+
+    <!-- Bootstrap CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- CSS propio -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+
+<body class="login-body">
+
+    <!--HEADER / NAVBAR-->
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-perfulandia shadow-sm">
+
+            <div class="container">
+
+                <!-- Logo -->
+                <a
+                    class="navbar-brand"
+                    href="../index.html"
+                >
+
+                    <img
+                        src="../img/logo.png"
+                        alt="Logo de Perfulandia"
+                        class="logo-navbar"
+                    >
+
+                </a>
+
+
+                <!-- Volver al inicio -->
+                <a
+                    href="../index.html"
+                    class="btn btn-outline-secondary"
+                >
+                    Volver al inicio
+                </a>
+
+            </div>
+
+        </nav>
+
+    </header>
+
+
+    <!--CONTENIDO PRINCIPAL= -->
+    <main>
+
+        <section class="container py-5">
+
+            <div class="row justify-content-center">
+
+                <div class="col-12 col-md-8 col-lg-6">
+
+                    <div class="card login-card shadow border-0 p-4 p-md-5">
+
+
+                        <!--ENCABEZADO -->
+                        <div class="text-center mb-4">
+
+                            <img
+                                src="../img/logo.png"
+                                alt="Logo Perfulandia"
+                                class="logo-login mb-3"
+                            >
+
+                            <p class="text-secondary mb-0">
+                                Crea tu cuenta
+                            </p>
+
+                        </div>
+
+
+                        <!-- FORMULARIO REGISTRO-->
+                        <form id="formRegistro" novalidate>
+
+                            <!-- RUT -->
+                            <div class="mb-3">
+                                <label for="rut" class="form-label">
+                                    RUT
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="rut"
+                                    name="rut"
+                                    minlength="7"
+                                    maxlength="9"
+                                    placeholder="1000005K"
+                                    required
+                                >
+
+                                <div class="form-text">
+                                    Ingresa el RUT sin puntos ni guion, incluyendo el dígito verificador.
+                                    Ejemplo: 1000005K
+                                </div>
+
+                                <div
+                                    id="errorRut"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- NOMBRE -->
+                            <div class="mb-3">
+                                <label for="nombre" class="form-label">
+                                    Nombre
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="nombre"
+                                    name="nombre"
+                                    maxlength="50"
+                                    autocomplete="given-name"
+                                    placeholder="Ingresa tu nombre"
+                                    required
+                                >
+
+                                <div
+                                    id="errorNombre"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- APELLIDOS -->
+                            <div class="mb-3">
+                                <label for="apellidos" class="form-label">
+                                    Apellidos
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="apellidos"
+                                    name="apellidos"
+                                    maxlength="100"
+                                    autocomplete="family-name"
+                                    placeholder="Ingresa tus apellidos"
+                                    required
+                                >
+
+                                <div
+                                    id="errorApellidos"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- CORREO -->
+                            <div class="mb-3">
+                                <label for="correo" class="form-label">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    type="email"
+                                    class="form-control"
+                                    id="correo"
+                                    name="correo"
+                                    maxlength="100"
+                                    autocomplete="email"
+                                    placeholder="ejemplo@gmail.com"
+                                    required
+                                >
+
+                                <div class="form-text">
+                                    Correos permitidos:
+                                    @duoc.cl, @profesor.duoc.cl o @gmail.com.
+                                </div>
+
+                                <div
+                                    id="errorCorreo"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- FECHA DE NACIMIENTO -->
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">
+                                    Fecha de nacimiento
+                                </label>
+
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="fechaNacimiento"
+                                    name="fechaNacimiento"
+                                    autocomplete="bday"
+                                >
+
+                                <div class="form-text">
+                                    Este campo es opcional.
+                                </div>
+                            </div>
+
+
+                            <!-- REGIÓN -->
+                            <div class="mb-3">
+                                <label for="region" class="form-label">
+                                    Región
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    id="region"
+                                    name="region"
+                                    required
+                                >
+                                    <option value="">
+                                        Selecciona una región
+                                    </option>
+                                </select>
+
+                                <div
+                                    id="errorRegion"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- COMUNA -->
+                            <div class="mb-3">
+                                <label for="comuna" class="form-label">
+                                    Comuna
+                                </label>
+
+                                <select
+                                    class="form-select"
+                                    id="comuna"
+                                    name="comuna"
+                                    required
+                                    disabled
+                                >
+                                    <option value="">
+                                        Primero selecciona una región
+                                    </option>
+                                </select>
+
+                                <div
+                                    id="errorComuna"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- DIRECCIÓN -->
+                            <div class="mb-3">
+                                <label for="direccion" class="form-label">
+                                    Dirección
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="direccion"
+                                    name="direccion"
+                                    maxlength="300"
+                                    autocomplete="street-address"
+                                    placeholder="Ingresa tu dirección"
+                                    required
+                                >
+
+                                <div
+                                    id="errorDireccion"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- CONTRASEÑA -->
+                            <div class="mb-3">
+                                <label for="password" class="form-label">
+                                    Contraseña
+                                </label>
+
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="password"
+                                    name="password"
+                                    minlength="4"
+                                    maxlength="10"
+                                    autocomplete="new-password"
+                                    placeholder="Crea una contraseña"
+                                    required
+                                >
+
+                                <div class="form-text">
+                                    Debe contener entre 4 y 10 caracteres.
+                                </div>
+
+                                <div
+                                    id="errorPassword"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- CONFIRMAR CONTRASEÑA -->
+                            <div class="mb-3">
+                                <label for="confirmarPassword" class="form-label">
+                                    Confirmar contraseña
+                                </label>
+
+                                <input
+                                    type="password"
+                                    class="form-control"
+                                    id="confirmarPassword"
+                                    name="confirmarPassword"
+                                    minlength="4"
+                                    maxlength="10"
+                                    autocomplete="new-password"
+                                    placeholder="Repite tu contraseña"
+                                    required
+                                >
+
+                                <div
+                                    id="errorConfirmarPassword"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- MOSTRAR CONTRASEÑAS -->
+                            <div class="form-check mb-4">
+
+                                <input
+                                    class="form-check-input"
+                                    type="checkbox"
+                                    id="mostrarPasswords"
+                                >
+
+                                <label
+                                    class="form-check-label"
+                                    for="mostrarPasswords"
+                                >
+                                    Mostrar contraseñas
+                                </label>
+
+                            </div>
+
+
+                            <!-- MENSAJE GENERAL -->
+                            <div
+                                id="mensajeRegistro"
+                                class="mb-3">
+                            </div>
+
+
+                            <!-- BOTÓN -->
+                            <div class="d-grid">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-perfulandia"
+                                >
+                                    Crear cuenta
+                                </button>
+
+                            </div>
+
+                        </form>
+
+
+                        <!-- =========================
+                             VOLVER AL LOGIN
+                        ========================== -->
+                        <div class="text-center mt-4">
+
+                            <p class="mb-1">
+                                ¿Ya tienes una cuenta?
+                            </p>
+
+                            <a
+                                href="login.html"
+                                class="link-registro"
+                            >
+                                Iniciar sesión
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+    <footer class="footer-perfulandia text-center py-4 mt-auto">
+
+        <div class="container">
+
+            <p class="mb-0">
+                &copy; 2026 Perfulandia.
+                Todos los derechos reservados.
+            </p>
+
+        </div>
+
+    </footer>
+
+
+    <!-- Bootstrap JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+    <!-- Validaciones generales -->
+    <script src="../js/validaciones.js"></script>
+
+    <!-- JavaScript del registro -->
+    <script src="../js/registro.js"></script>
+
+</body>
+
+</html>

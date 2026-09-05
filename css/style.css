@@ -79,14 +79,14 @@ a {
 
 
 .logo {
+    width: 190px;
+    height: auto;
 
-    width: 45px;
-    height: 45px;
+    transform: scale(1.4);
+    transform-origin: left center;
 
-    object-fit: contain;
-
-    margin-right: 10px;
-
+    margin-left: -55px;
+    margin-right: 55px;
 }
 
 
@@ -102,14 +102,15 @@ a {
 
 
 .navbar .nav-link {
-
     color: var(--texto);
 
-    margin-left: 8px;
-    margin-right: 8px;
+    margin-left: 14px;
+    margin-right: 14px;
+
+    font-size: 1.15rem;
+    font-weight: 500;
 
     transition: 0.3s;
-
 }
 
 
@@ -163,6 +164,7 @@ a {
 
 
 .btn-outline-perfulandia {
+    font-size: 1.05rem;
 
     background-color: transparent;
 
@@ -777,4 +779,53 @@ a {
 
     margin-right: 8px;
 
+}
+/* =====================================================
+   BANNER HOME / CARRUSEL
+===================================================== */
+
+.banner-home {
+    background-color: var(--beige-claro);
+}
+
+.banner-img {
+    width: 100%;
+    height: 720px;
+    object-fit: cover;
+}
+
+/* Indicadores */
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--rosa-principal);
+    opacity: 0.6;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+/* Flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+    .banner-img {
+        height: 500px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-img {
+        height: 300px;
+        object-fit: cover;
+    }
 }

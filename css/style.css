@@ -631,53 +631,28 @@ a {
 
 
 /* =========================
-   LOGIN - PERFULANDIA
+   LOGIN
 ========================= */
 
+/* Fondo */
 .login-body {
     background-color: #f5f0eb;
     min-height: 100vh;
-
     display: flex;
     flex-direction: column;
 }
 
-
-/* Navbar */
-.navbar-perfulandia {
-    background-color: #f8eeee;
-}
-
-
-/* Logo / nombre navbar */
-.navbar-perfulandia .navbar-brand {
-    color: #444444;
-}
-
-.navbar-perfulandia .navbar-brand:hover {
-    color: #b6788b;
-}
-
-
-/* Tarjeta login */
+/* Tarjeta */
 .login-card {
     background-color: #ffffff;
     border-radius: 20px;
 }
-
-
-/* Títulos */
-.login-card h1 {
-    color: #444444;
-}
-
 
 /* Labels */
 .login-card .form-label {
     color: #444444;
     font-weight: 500;
 }
-
 
 /* Inputs */
 .login-card .form-control {
@@ -686,89 +661,75 @@ a {
     padding: 10px 12px;
 }
 
-
-/* Input seleccionado */
+/* Input activo */
 .login-card .form-control:focus {
-    border-color: #d9a7b5;
-
-    box-shadow:
-        0 0 0 0.2rem
-        rgba(217, 167, 181, 0.25);
+    border-color: var(--rosa-principal);
+    box-shadow: 0 0 0 0.2rem rgba(217, 167, 181, 0.25);
 }
 
-
-/* Botón principal */
-.btn-perfulandia {
-    background-color: #d9a7b5;
-    color: #ffffff;
-    border: none;
-
-    border-radius: 10px;
-
-    padding: 11px;
-
-    font-weight: 500;
+/* Texto ayuda */
+.login-card .form-text {
+    color: #777777;
 }
-
-
-/* Hover botón */
-.btn-perfulandia:hover {
-    background-color: #c88f9f;
-    color: #ffffff;
-}
-
 
 /* Links */
 .login-card a {
-    color: #b6788b;
+    color: var(--rosa-oscuro);
     text-decoration: none;
     font-weight: 500;
 }
 
 .login-card a:hover {
-    color: #965e70;
     text-decoration: underline;
 }
 
-
-/* Texto secundario */
-.login-card .form-text {
-    color: #777777;
-}
-
-
 /* Checkbox */
 .form-check-input:checked {
-    background-color: #d9a7b5;
-    border-color: #d9a7b5;
+    background-color: var(--rosa-principal);
+    border-color: var(--rosa-principal);
 }
 
-
-/* Footer */
-.footer-perfulandia {
-    background-color: #f8eeee;
-    color: #666666;
-}
-
-/* Logo del navbar */
-.logo-navbar {
-    width: 160px;
-    height: auto;
-    object-fit: contain;
-}
-
-
-/* Logo del formulario login */
+/* Logo formulario */
 .logo-login {
     width: 170px;
     height: auto;
     object-fit: contain;
 }
 
+/* Logo navbar login */
+.logo-login-navbar {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
 /* =========================
    REGISTRO
 ========================= */
 
+/* Fondo */
+.registro-body {
+    background-color: #f5f0eb;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+
+/* Tarjeta */
+.registro-card {
+    background-color: #ffffff;
+    border-radius: 20px;
+}
+
+
+/* Labels */
+#formRegistro .form-label {
+    color: #444444;
+    font-weight: 500;
+}
+
+
+/* Inputs y selects */
 #formRegistro .form-control,
 #formRegistro .form-select {
     border-radius: 10px;
@@ -776,10 +737,53 @@ a {
     padding: 10px 12px;
 }
 
+
+/* Campo activo */
 #formRegistro .form-control:focus,
 #formRegistro .form-select:focus {
-    border-color: #d9a7b5;
+    border-color: var(--rosa-principal);
     box-shadow: 0 0 0 0.2rem rgba(217, 167, 181, 0.25);
+}
+
+
+/* Texto ayuda */
+#formRegistro .form-text {
+    color: #777777;
+}
+
+
+/* Checkbox */
+#formRegistro .form-check-input:checked {
+    background-color: var(--rosa-principal);
+    border-color: var(--rosa-principal);
+}
+
+
+/* Logo navbar registro */
+.logo-registro-navbar {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Logo formulario */
+.logo-registro {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Link iniciar sesión */
+.registro-card a {
+    color: var(--rosa-oscuro);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.registro-card a:hover {
+    text-decoration: underline;
 }
 
 /* =====================================================
@@ -1427,5 +1431,385 @@ a {
     box-shadow:
         0 12px 30px
         rgba(0, 0, 0, 0.12);
+
+}
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+
+/* Fondo */
+.admin-body {
+    background-color: #f5f0eb;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   LAYOUT
+========================= */
+
+/* Estructura */
+.admin-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   SIDEBAR
+========================= */
+
+/* Sidebar */
+.admin-sidebar {
+    width: 260px;
+    min-height: 100vh;
+
+    background-color: #f8eeee;
+
+    padding: 30px 20px;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    border-right: 1px solid #eadfe1;
+}
+
+
+/* Logo contenedor */
+.admin-sidebar-logo {
+    text-align: center;
+    margin-bottom: 35px;
+}
+
+
+/* Logo */
+.logo-admin-sidebar {
+    width: 180px;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* =========================
+   MENÚ
+========================= */
+
+/* Menú */
+.admin-menu {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+
+/* Link menú */
+.admin-menu-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    width: 100%;
+
+    padding: 12px 15px;
+
+    border-radius: 10px;
+
+    color: #555555;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+/* Botón desplegable */
+.admin-menu-button {
+    border: none;
+    background-color: transparent;
+    text-align: left;
+}
+
+
+/* Iconos */
+.admin-menu-link i {
+    font-size: 1.15rem;
+}
+
+
+/* Hover */
+.admin-menu-link:hover {
+    background-color: #efdde2;
+    color: var(--rosa-oscuro);
+}
+
+
+/* Activo */
+.admin-menu-link.active {
+    background-color: var(--rosa-principal);
+    color: var(--blanco);
+}
+
+
+/* Volver tienda */
+.admin-menu-tienda {
+    color: var(--rosa-oscuro);
+}
+
+
+/* Separador */
+.admin-menu-separador {
+    margin: 15px 0;
+    border-color: #dfcfd3;
+}
+
+
+/* =========================
+   SUBMENÚ
+========================= */
+
+/* Contenedor */
+.admin-submenu {
+    padding-left: 20px;
+}
+
+
+/* Link submenu */
+.admin-submenu-link {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+
+    padding: 9px 15px;
+
+    margin-top: 4px;
+
+    border-radius: 8px;
+
+    color: #666666;
+
+    text-decoration: none;
+
+    font-size: 0.95rem;
+
+    transition: 0.2s;
+}
+
+
+/* Hover submenu */
+.admin-submenu-link:hover {
+    background-color: #efdde2;
+    color: var(--rosa-oscuro);
+}
+
+
+/* =========================
+   CONTENIDO
+========================= */
+
+/* Principal */
+.admin-main {
+    margin-left: 260px;
+
+    width: calc(100% - 260px);
+
+    padding: 45px;
+}
+
+
+/* Encabezado */
+.admin-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 25px;
+}
+
+
+/* =========================
+   IDENTIDAD ADMIN
+========================= */
+
+/* Identidad */
+.admin-identidad {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    background-color: #ffffff;
+
+    padding: 10px 18px;
+
+    border-radius: 15px;
+
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+
+/* Avatar */
+.admin-avatar {
+    width: 48px;
+    height: 48px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f8eeee;
+
+    color: var(--rosa-oscuro);
+
+    border-radius: 50%;
+
+    font-size: 1.4rem;
+}
+
+
+/* =========================
+   TARJETAS
+========================= */
+
+/* Tarjeta */
+.admin-card {
+    background-color: #ffffff;
+
+    border-radius: 18px;
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+}
+
+
+/* Hover tarjeta */
+.admin-card:hover {
+    transform: translateY(-4px);
+}
+
+
+/* Iconos */
+.admin-icon {
+    width: 55px;
+    height: 55px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #f8eeee;
+
+    color: var(--rosa-oscuro);
+
+    border-radius: 15px;
+
+    font-size: 25px;
+}
+
+
+/* =========================
+   PANEL
+========================= */
+
+/* Panel */
+.admin-panel {
+    background-color: #ffffff;
+    border-radius: 18px;
+}
+
+
+/* =========================
+   ACCESOS RÁPIDOS
+========================= */
+
+/* Acceso */
+.admin-link {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 15px;
+
+    background-color: #f8eeee;
+
+    color: #555555;
+
+    border-radius: 10px;
+
+    text-decoration: none;
+
+    transition: 0.2s;
+}
+
+
+/* Icono */
+.admin-link i {
+    color: var(--rosa-oscuro);
+}
+
+
+/* Hover */
+.admin-link:hover {
+    background-color: #efdde2;
+
+    color: var(--rosa-oscuro);
+
+    text-decoration: none;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+/* Footer */
+.admin-footer {
+    color: #777777;
+}
+
+
+/* =====================================================
+   RESPONSIVE ADMIN
+===================================================== */
+
+@media (max-width: 768px) {
+
+    /* Layout */
+    .admin-layout {
+        flex-direction: column;
+    }
+
+
+    /* Sidebar */
+    .admin-sidebar {
+        position: static;
+
+        width: 100%;
+        min-height: auto;
+    }
+
+
+    /* Contenido */
+    .admin-main {
+        margin-left: 0;
+
+        width: 100%;
+
+        padding: 25px;
+    }
+
+
+    /* Encabezado */
+    .admin-top {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+
+    /* Identidad */
+    .admin-identidad {
+        width: 100%;
+    }
 
 }

@@ -1,5 +1,6 @@
 // Regiones y comunas
 const regionesComunas = {
+
     "Región Metropolitana": [
         "Santiago",
         "Providencia",
@@ -50,6 +51,7 @@ const rut = document.getElementById("rut");
 const nombre = document.getElementById("nombre");
 const apellidos = document.getElementById("apellidos");
 const correo = document.getElementById("correo");
+const fechaNacimiento = document.getElementById("fechaNacimiento");
 const tipoUsuario = document.getElementById("tipoUsuario");
 const region = document.getElementById("region");
 const comuna = document.getElementById("comuna");
@@ -63,8 +65,14 @@ const errorTipoUsuario = document.getElementById("errorTipoUsuario");
 const errorRegion = document.getElementById("errorRegion");
 const errorComuna = document.getElementById("errorComuna");
 const errorDireccion = document.getElementById("errorDireccion");
+const textoBtnUsuario = document.getElementById("textoBtnUsuario");
 
 const mensajeUsuario = document.getElementById("mensajeUsuario");
+
+
+// Parámetro editar
+const parametros = new URLSearchParams(window.location.search);
+const indiceEditar = parametros.get("editar");
 
 
 // Mostrar resultado
@@ -113,47 +121,46 @@ function validarRut(valor) {
         };
     }
 
-    const cuerpo = rutLimpio.slice(0, -1);
-    const dvIngresado = rutLimpio.slice(-1);
+    return {
+        valido: true
+    };
+}
 
-    let suma = 0;
-    let multiplicador = 2;
 
-    for (let i = cuerpo.length - 1; i >= 0; i--) {
+// Validar RUN repetido
+function validarRutRepetido(valor) {
 
-        suma += Number(cuerpo[i]) * multiplicador;
+    const usuariosGuardados = localStorage.getItem("usuarios");
 
-        multiplicador++;
+    const usuarios = usuariosGuardados
+        ? JSON.parse(usuariosGuardados)
+        : [];
 
-        if (multiplicador > 7) {
-            multiplicador = 2;
+    const rutLimpio = valor.trim().toUpperCase();
+
+    const rutRepetido = usuarios.some(function (usuario, index) {
+
+        if (
+            indiceEditar !== null &&
+            index === Number(indiceEditar)
+        ) {
+            return false;
         }
 
-    }
+        return usuario.rut === rutLimpio;
 
-    const resto = 11 - (suma % 11);
+    });
 
-    let dvCalculado;
-
-    if (resto === 11) {
-        dvCalculado = "0";
-    } else if (resto === 10) {
-        dvCalculado = "K";
-    } else {
-        dvCalculado = String(resto);
-    }
-
-    if (dvIngresado !== dvCalculado) {
+    if (rutRepetido) {
         return {
             valido: false,
-            mensaje: "El RUN ingresado no es válido."
+            mensaje: "Este RUN ya está registrado."
         };
     }
 
     return {
         valido: true
     };
-
 }
 
 
@@ -179,7 +186,6 @@ function validarNombre(valor) {
     return {
         valido: true
     };
-
 }
 
 
@@ -205,7 +211,6 @@ function validarApellidos(valor) {
     return {
         valido: true
     };
-
 }
 
 
@@ -257,7 +262,6 @@ function validarCorreo(valor) {
     return {
         valido: true
     };
-
 }
 
 
@@ -274,7 +278,6 @@ function validarSeleccion(valor, mensaje) {
     return {
         valido: true
     };
-
 }
 
 
@@ -300,7 +303,6 @@ function validarDireccion(valor) {
     return {
         valido: true
     };
-
 }
 
 
@@ -349,6 +351,45 @@ function cargarComunas() {
         comuna.appendChild(option);
 
     });
+
+}
+
+
+// Cargar usuario editar
+function cargarUsuarioEditar() {
+
+    if (indiceEditar === null) {
+        return;
+    }
+
+    // Cambiar texto botón
+    textoBtnUsuario.textContent = "Guardar cambios";
+
+    const usuariosGuardados = localStorage.getItem("usuarios");
+
+    const usuarios = usuariosGuardados
+        ? JSON.parse(usuariosGuardados)
+        : [];
+
+    const usuario = usuarios[Number(indiceEditar)];
+
+    if (!usuario) {
+        return;
+    }
+
+    rut.value = usuario.rut;
+    nombre.value = usuario.nombre;
+    apellidos.value = usuario.apellidos;
+    correo.value = usuario.correo;
+    fechaNacimiento.value = usuario.fechaNacimiento || "";
+    tipoUsuario.value = usuario.tipoUsuario;
+
+    region.value = usuario.region;
+
+    cargarComunas();
+
+    comuna.value = usuario.comuna;
+    direccion.value = usuario.direccion;
 
 }
 
@@ -403,10 +444,25 @@ tipoUsuario.addEventListener("change", function () {
 // RUN
 rut.addEventListener("blur", function () {
 
+    const resultadoRut = validarRut(rut.value);
+
+    if (!resultadoRut.valido) {
+
+        mostrarResultado(
+            rut,
+            errorRut,
+            resultadoRut
+        );
+
+        return;
+    }
+
+    const resultadoRepetido = validarRutRepetido(rut.value);
+
     mostrarResultado(
         rut,
         errorRut,
-        validarRut(rut.value)
+        resultadoRepetido
     );
 
 });
@@ -466,40 +522,95 @@ formUsuario.addEventListener("submit", function (event) {
     event.preventDefault();
 
     const resultadoRut = validarRut(rut.value);
-    const resultadoNombre = validarNombre(nombre.value);
-    const resultadoApellidos = validarApellidos(apellidos.value);
-    const resultadoCorreo = validarCorreo(correo.value);
 
-    const resultadoTipoUsuario = validarSeleccion(
-        tipoUsuario.value,
-        "Seleccione un tipo de usuario."
+    const resultadoRutRepetido =
+        validarRutRepetido(rut.value);
+
+    const resultadoNombre =
+        validarNombre(nombre.value);
+
+    const resultadoApellidos =
+        validarApellidos(apellidos.value);
+
+    const resultadoCorreo =
+        validarCorreo(correo.value);
+
+    const resultadoTipoUsuario =
+        validarSeleccion(
+            tipoUsuario.value,
+            "Seleccione un tipo de usuario."
+        );
+
+    const resultadoRegion =
+        validarSeleccion(
+            region.value,
+            "Seleccione una región."
+        );
+
+    const resultadoComuna =
+        validarSeleccion(
+            comuna.value,
+            "Seleccione una comuna."
+        );
+
+    const resultadoDireccion =
+        validarDireccion(direccion.value);
+
+
+    mostrarResultado(
+        rut,
+        errorRut,
+        !resultadoRut.valido
+            ? resultadoRut
+            : resultadoRutRepetido
     );
 
-    const resultadoRegion = validarSeleccion(
-        region.value,
-        "Seleccione una región."
+    mostrarResultado(
+        nombre,
+        errorNombre,
+        resultadoNombre
     );
 
-    const resultadoComuna = validarSeleccion(
-        comuna.value,
-        "Seleccione una comuna."
+    mostrarResultado(
+        apellidos,
+        errorApellidos,
+        resultadoApellidos
     );
 
-    const resultadoDireccion = validarDireccion(direccion.value);
+    mostrarResultado(
+        correo,
+        errorCorreo,
+        resultadoCorreo
+    );
 
+    mostrarResultado(
+        tipoUsuario,
+        errorTipoUsuario,
+        resultadoTipoUsuario
+    );
 
-    mostrarResultado(rut, errorRut, resultadoRut);
-    mostrarResultado(nombre, errorNombre, resultadoNombre);
-    mostrarResultado(apellidos, errorApellidos, resultadoApellidos);
-    mostrarResultado(correo, errorCorreo, resultadoCorreo);
-    mostrarResultado(tipoUsuario, errorTipoUsuario, resultadoTipoUsuario);
-    mostrarResultado(region, errorRegion, resultadoRegion);
-    mostrarResultado(comuna, errorComuna, resultadoComuna);
-    mostrarResultado(direccion, errorDireccion, resultadoDireccion);
+    mostrarResultado(
+        region,
+        errorRegion,
+        resultadoRegion
+    );
+
+    mostrarResultado(
+        comuna,
+        errorComuna,
+        resultadoComuna
+    );
+
+    mostrarResultado(
+        direccion,
+        errorDireccion,
+        resultadoDireccion
+    );
 
 
     const formularioValido =
         resultadoRut.valido &&
+        resultadoRutRepetido.valido &&
         resultadoNombre.valido &&
         resultadoApellidos.valido &&
         resultadoCorreo.valido &&
@@ -521,14 +632,99 @@ formUsuario.addEventListener("submit", function (event) {
     }
 
 
+    // Usuario
+    const nuevoUsuario = {
+
+        rut: rut.value.trim().toUpperCase(),
+        nombre: nombre.value.trim(),
+        apellidos: apellidos.value.trim(),
+        correo: correo.value.trim().toLowerCase(),
+        fechaNacimiento: fechaNacimiento.value,
+        tipoUsuario: tipoUsuario.value,
+        region: region.value,
+        comuna: comuna.value,
+        direccion: direccion.value.trim()
+
+    };
+
+
+    // Usuarios guardados
+    const usuariosGuardados =
+        localStorage.getItem("usuarios");
+
+    const usuarios = usuariosGuardados
+        ? JSON.parse(usuariosGuardados)
+        : [];
+
+
+    // Guardar usuario
+    if (indiceEditar !== null) {
+
+        usuarios[Number(indiceEditar)] = nuevoUsuario;
+
+    } else {
+
+        usuarios.push(nuevoUsuario);
+
+    }
+
+
+    localStorage.setItem(
+        "usuarios",
+        JSON.stringify(usuarios)
+    );
+
+
+    // Mensaje
     mensajeUsuario.innerHTML = `
         <div class="alert alert-success">
-            Usuario creado correctamente.
+            ${
+                indiceEditar !== null
+                    ? "Usuario actualizado correctamente."
+                    : "Usuario creado correctamente."
+            }
         </div>
     `;
+
+    // Volver a usuarios al editar
+    if (indiceEditar !== null) {
+
+        setTimeout(function () {
+            window.location.href = "usuarios.html";
+        }, 1000);
+
+        return;
+    }
+
+    // Limpiar solo al crear
+    if (indiceEditar === null) {
+
+        formUsuario.reset();
+
+        comuna.innerHTML = `
+            <option value="">
+                Seleccione una comuna
+            </option>
+        `;
+
+        comuna.disabled = true;
+
+        formUsuario
+            .querySelectorAll(".is-valid, .is-invalid")
+            .forEach(function (campo) {
+
+                campo.classList.remove(
+                    "is-valid",
+                    "is-invalid"
+                );
+
+            });
+
+    }
 
 });
 
 
 // Inicio
 cargarRegiones();
+cargarUsuarioEditar();

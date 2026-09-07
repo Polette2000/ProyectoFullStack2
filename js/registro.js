@@ -74,102 +74,63 @@ document.addEventListener("DOMContentLoaded", function () {
         );
 
     
-    // VALIDAR RUT
+    // Validar RUN
+    function validarRut(valor) {
 
-    function validarRut(rutValor) {
-
-        const rutLimpio =
-            rutValor.trim().toUpperCase();
+        const rutLimpio = valor.trim().toUpperCase();
 
         if (rutLimpio === "") {
             return {
                 valido: false,
-                mensaje: "El RUT es obligatorio."
+                mensaje: "El RUN es obligatorio."
             };
         }
 
-        if (
-            rutLimpio.length < 7 ||
-            rutLimpio.length > 9
-        ) {
+        if (rutLimpio.length < 7 || rutLimpio.length > 9) {
             return {
                 valido: false,
-                mensaje:
-                    "El RUT debe tener entre 7 y 9 caracteres."
+                mensaje: "El RUN debe tener entre 7 y 9 caracteres."
             };
         }
 
         if (!/^[0-9]+[0-9K]$/.test(rutLimpio)) {
             return {
                 valido: false,
-                mensaje:
-                    "Ingresa el RUT sin puntos ni guion."
-            };
-        }
-
-        const cuerpo =
-            rutLimpio.slice(0, -1);
-
-        const digitoVerificador =
-            rutLimpio.slice(-1);
-
-        let suma = 0;
-        let multiplicador = 2;
-
-        for (
-            let i = cuerpo.length - 1;
-            i >= 0;
-            i--
-        ) {
-
-            suma +=
-                parseInt(cuerpo[i]) *
-                multiplicador;
-
-            multiplicador++;
-
-            if (multiplicador === 8) {
-                multiplicador = 2;
-            }
-        }
-
-        const resto =
-            11 - (suma % 11);
-
-        let digitoCalculado;
-
-        if (resto === 11) {
-
-            digitoCalculado = "0";
-
-        } else if (resto === 10) {
-
-            digitoCalculado = "K";
-
-        } else {
-
-            digitoCalculado =
-                resto.toString();
-
-        }
-
-        if (
-            digitoCalculado !==
-            digitoVerificador
-        ) {
-            return {
-                valido: false,
-                mensaje:
-                    "El RUT ingresado no es válido."
+                mensaje: "Ingrese el RUN sin puntos ni guion."
             };
         }
 
         return {
-            valido: true,
-            mensaje: ""
+            valido: true
         };
     }
 
+    // Validar RUN repetido
+    function validarRutRepetido(valor) {
+
+        const usuariosGuardados = localStorage.getItem("usuarios");
+
+        const usuarios = usuariosGuardados
+            ? JSON.parse(usuariosGuardados)
+            : [];
+
+        const rutLimpio = valor.trim().toUpperCase();
+
+        const rutRepetido = usuarios.some(function (usuario) {
+            return usuario.rut === rutLimpio;
+        });
+
+        if (rutRepetido) {
+            return {
+                valido: false,
+                mensaje: "Este RUN ya está registrado."
+            };
+        }
+
+        return {
+            valido: true
+        };
+    }
    
     // VALIDAR NOMBRE
    
@@ -664,18 +625,30 @@ document.addEventListener("DOMContentLoaded", function () {
     // VALIDACIONES BLUR
     
 
-    rut.addEventListener(
-        "blur",
-        function () {
+    rut.addEventListener("blur", function () {
+
+        const resultadoRut = validarRut(rut.value);
+
+        if (!resultadoRut.valido) {
 
             mostrarResultado(
                 rut,
                 errorRut,
-                validarRut(rut.value)
+                resultadoRut
             );
 
+            return;
         }
-    );
+
+        const resultadoRepetido = validarRutRepetido(rut.value);
+
+        mostrarResultado(
+            rut,
+            errorRut,
+            resultadoRepetido
+        );
+
+});
 
 
     nombre.addEventListener(

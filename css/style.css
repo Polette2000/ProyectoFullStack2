@@ -1732,3 +1732,51 @@ a {
     }
 
 }
+/* =====================================================
+   BANNER ENVÍO GRATIS
+===================================================== */
+
+.banner-envio {
+    width: 100%;
+    overflow: hidden;
+
+    background-color: #d9a7b0;
+    color: white;
+
+    padding: 11px 0;
+
+    position: relative;
+    z-index: 9999;
+}
+
+
+.banner-envio-track {
+    display: flex;
+    width: max-content;
+    gap: 80px;
+
+    animation: movimientoBanner 25s linear infinite;
+}
+
+
+.banner-envio-track span {
+    white-space: nowrap;
+
+    font-size: 0.9rem;
+    font-weight: 600;
+
+    letter-spacing: 1px;
+}
+
+
+@keyframes movimientoBanner {
+
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+
+}

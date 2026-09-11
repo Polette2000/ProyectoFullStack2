@@ -120,6 +120,41 @@ const productos = [
 
 ];
 
+const stockInicialProductos = {
+    1: 12,
+    2: 8,
+    3: 10,
+    4: 6,
+    5: 15,
+    6: 9,
+    7: 11,
+    8: 7,
+    9: 5,
+    10: 4,
+    11: 3,
+    12: 6
+};
+
+function normalizarProductoCatalogo(producto) {
+    return {
+        ...producto,
+        stock: Number(producto.stock ?? stockInicialProductos[producto.id] ?? 0)
+    };
+}
+
+function obtenerProductosCatalogo() {
+    const productosGuardados = localStorage.getItem("productosAdmin");
+
+    if (productosGuardados) {
+        try {
+            return JSON.parse(productosGuardados).map(normalizarProductoCatalogo);
+        } catch (error) {
+            return productos.map(normalizarProductoCatalogo);
+        }
+    }
+
+    return productos.map(normalizarProductoCatalogo);
+}
 
 // =======================================================
 // ELEMENTOS DEL HTML
@@ -283,7 +318,7 @@ function filtrarProductos() {
 
     // Filtramos
     const productosFiltrados =
-        productos.filter(function (producto) {
+        obtenerProductosCatalogo().filter(function (producto) {
 
             const coincideNombre =
                 producto.nombre
@@ -339,7 +374,7 @@ function agregarAlCarrito(idProducto) {
 
     // Buscar producto
     const productoEncontrado =
-        productos.find(function (producto) {
+        obtenerProductosCatalogo().find(function (producto) {
 
             return producto.id === idProducto;
 
@@ -374,10 +409,28 @@ function agregarAlCarrito(idProducto) {
         });
 
 
+    const stockDisponible = Number(productoEncontrado.stock);
+    const cantidadActual = productoEnCarrito ? Number(productoEnCarrito.cantidad) : 0;
+
+    if (stockDisponible <= 0) {
+
+        mostrarMensajeProductoAgregado(productoEncontrado.nombre, "sin-stock");
+        return;
+
+    }
+
+    if (cantidadActual >= stockDisponible) {
+
+        mostrarMensajeProductoAgregado(productoEncontrado.nombre, "stock-insuficiente", stockDisponible);
+        return;
+
+    }
+
     // Si existe aumentamos cantidad
     if (productoEnCarrito) {
 
         productoEnCarrito.cantidad++;
+        productoEnCarrito.stock = stockDisponible;
 
     }
 
@@ -393,6 +446,8 @@ function agregarAlCarrito(idProducto) {
             precio: productoEncontrado.precio,
 
             imagen: productoEncontrado.imagen,
+
+            stock: stockDisponible,
 
             cantidad: 1
 
@@ -461,7 +516,7 @@ function actualizarContadorCarrito() {
 // MENSAJE AL AGREGAR PRODUCTO
 // =======================================================
 
-function mostrarMensajeProductoAgregado(nombreProducto) {
+function mostrarMensajeProductoAgregado(nombreProducto, tipo = "agregado", stockDisponible = 0) {
 
     const mensaje =
         document.createElement("div");
@@ -471,13 +526,20 @@ function mostrarMensajeProductoAgregado(nombreProducto) {
         "alert alert-producto position-fixed top-0 start-50 translate-middle-x mt-4 shadow";
 
 
+    const icono = tipo === "agregado" ? "bi-check-circle-fill" : "bi-exclamation-triangle-fill";
+    const texto = tipo === "agregado"
+        ? "fue agregado al carrito."
+        : tipo === "sin-stock"
+            ? "no tiene stock disponible."
+            : `solo tiene ${stockDisponible} unidades disponibles.`;
+
     mensaje.innerHTML = `
 
-        <i class="bi bi-check-circle-fill"></i>
+        <i class="bi ${icono}"></i>
 
         <strong>${nombreProducto}</strong>
 
-        fue agregado al carrito.
+        ${texto}
 
     `;
 
@@ -505,7 +567,7 @@ document.addEventListener(
 
         if (contenedorProductos) {
 
-            mostrarProductos(productos);
+            mostrarProductos(obtenerProductosCatalogo());
 
         }
 

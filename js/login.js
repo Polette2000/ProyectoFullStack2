@@ -236,13 +236,47 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultadoPassword.valido
             ) {
 
+                const correoLogin = correo.value.trim().toLowerCase();
+                const passwordLogin = password.value.trim();
+
+                if (
+                    correoLogin === "admin@duoc.cl" &&
+                    passwordLogin === "1234"
+                ) {
+
+                    localStorage.removeItem("clienteActivo");
+
+                    mensajeLogin.textContent =
+                        "Ingreso administrador correcto.";
+
+                    mensajeLogin.className =
+                        "alert alert-success mt-3";
+
+                    setTimeout(function () {
+                        window.location.href = "../admin/admin-index.html";
+                    }, 600);
+
+                    return;
+
+                }
+
+                localStorage.setItem(
+                    "clienteActivo",
+                    JSON.stringify({
+                        nombre: "Cliente Perfulandia",
+                        correo: correoLogin
+                    })
+                );
+
                 mensajeLogin.textContent =
-                    "Datos ingresados correctamente.";
+                    "Ingreso cliente correcto.";
 
                 mensajeLogin.className =
                     "alert alert-success mt-3";
 
-                console.log("Login válido");
+                setTimeout(function () {
+                    window.location.href = "productos.html";
+                }, 600);
 
             }
 
@@ -250,3 +284,4 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+

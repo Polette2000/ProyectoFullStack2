@@ -13,12 +13,22 @@
 </head>
 
 <body>
+    <div class="banner-envio">
+        <div class="banner-envio-track">
+            <span>ENVIO GRATIS EN COMPRAS DESDE $40.990</span>
+            <span>DESCUBRE TU FRAGANCIA FAVORITA</span>
+            <span>PERFUMES PARA CADA MOMENTO</span>
+            <span>ENVIO GRATIS EN COMPRAS DESDE $40.990</span>
+            <span>DESCUBRE TU FRAGANCIA FAVORITA</span>
+            <span>PERFUMES PARA CADA MOMENTO</span>
+        </div>
+    </div>
+
     <header>
         <nav class="navbar navbar-expand-lg navbar-light navbar-perfulandia">
-            <div class="container">
+            <div class="container-fluid px-5">
                 <a class="navbar-brand d-flex align-items-center" href="../index.html">
                     <img src="../img/Logo.png" alt="Logo Perfulandia" class="logo">
-                    <span class="nombre-marca">Perfulandia</span>
                 </a>
 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#menuPrincipal" aria-controls="menuPrincipal" aria-expanded="false" aria-label="Abrir menu">
@@ -27,11 +37,21 @@
 
                 <div class="collapse navbar-collapse" id="menuPrincipal">
                     <ul class="navbar-nav mx-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link" href="../index.html">Inicio</a></li>
-                        <li class="nav-item"><a class="nav-link" href="productos.html">Productos</a></li>
-                        <li class="nav-item"><a class="nav-link" href="nosotros.html">Nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link active" href="blogs.html">Blog</a></li>
-                        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="../index.html">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="productos.html">Productos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="nosotros.html">Nosotros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" href="blogs.html">Blog</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="contacto.html">Contacto</a>
+                        </li>
                     </ul>
 
                     <div class="d-flex align-items-center gap-3">
@@ -39,6 +59,7 @@
                             <i class="bi bi-person"></i>
                             Ingresar
                         </a>
+
                         <a href="carrito.html" class="carrito-link position-relative" aria-label="Carrito de compras">
                             <i class="bi bi-bag"></i>
                             <span id="contadorCarrito" class="position-absolute top-0 start-100 translate-middle badge rounded-pill contador-carrito">0</span>
@@ -50,62 +71,123 @@
     </header>
 
     <main>
-        <section class="productos-header">
+        <section class="blog-hero">
             <div class="container text-center">
                 <p class="section-subtitulo">Blog Perfulandia</p>
                 <h1>Consejos para elegir tu fragancia</h1>
-                <p class="productos-header-descripcion">
-                    Aprende sobre familias olfativas, cuidados y recomendaciones para que tu perfume dure mas.
+                <p class="blog-hero-texto">
+                    Inspírate con guías simples sobre aromas, duración y formas de usar tus perfumes favoritos.
                 </p>
             </div>
         </section>
 
-        <section class="catalogo-productos py-5">
+        <section class="blog-contenido py-5">
             <div class="container">
+                <article class="blog-destacado mb-5">
+                    <div class="row g-4 align-items-center">
+                        <div class="col-lg-6">
+                            <img src="../img/Perfume11.webp" alt="Perfume elegante para ocasiones especiales" class="img-fluid">
+                        </div>
+                        <div class="col-lg-6">
+                            <p class="producto-categoria">Guia destacada</p>
+                            <h2>Como reconocer el perfume ideal para tu estilo</h2>
+                            <p>
+                                Elegir una fragancia no se trata solo de oler bien. Tambien habla de tu personalidad, tus rutinas y los momentos en que quieres usarla.
+                            </p>
+                            <a href="productos.html" class="btn btn-perfulandia">Explorar productos</a>
+                        </div>
+                    </div>
+                </article>
+
                 <div class="row g-4">
                     <article class="col-md-6 col-lg-4">
                         <div class="card blog-card h-100">
-                            <img src="../img/Perfume4.webp" class="card-img-top" alt="Perfume floral sobre fondo claro">
-                            <div class="card-body">
-                                <p class="producto-categoria">Guia de compra</p>
-                                <h2 class="blog-titulo">Como elegir un perfume para el dia a dia</h2>
+                            <img src="../img/Perfume4.webp" class="card-img-top" alt="Perfume floral para uso diario">
+                            <div class="card-body d-flex flex-column">
+                                <p class="producto-categoria">Dia a dia</p>
+                                <h2 class="blog-titulo">Fragancias frescas para todos los dias</h2>
                                 <p class="producto-descripcion">
-                                    Las notas frescas, florales y citricas funcionan muy bien para clases, trabajo y salidas casuales.
+                                    Las notas citricas, florales suaves y acuaticas son una buena opcion para clases, trabajo y salidas casuales.
                                 </p>
-                                <a href="productos.html" class="btn btn-outline-perfulandia">Ver perfumes</a>
+                                <a href="productos.html" class="btn btn-outline-perfulandia mt-auto">Ver perfumes</a>
                             </div>
                         </div>
                     </article>
 
                     <article class="col-md-6 col-lg-4">
                         <div class="card blog-card h-100">
-                            <img src="../img/Perfume11.webp" class="card-img-top" alt="Perfume intenso de noche">
-                            <div class="card-body">
-                                <p class="producto-categoria">Tips</p>
-                                <h2 class="blog-titulo">Haz que tu fragancia dure mas tiempo</h2>
-                                <p class="producto-descripcion">
-                                    Aplica perfume en zonas de pulso e hidrata la piel antes de usarlo para mejorar su fijacion.
-                                </p>
-                                <a href="productos.html" class="btn btn-outline-perfulandia">Explorar catalogo</a>
-                            </div>
-                        </div>
-                    </article>
-
-                    <article class="col-md-6 col-lg-4">
-                        <div class="card blog-card h-100">
-                            <img src="../img/Perfume9.webp" class="card-img-top" alt="Perfume unisex elegante">
-                            <div class="card-body">
+                            <img src="../img/Perfume9.webp" class="card-img-top" alt="Perfume unisex moderno">
+                            <div class="card-body d-flex flex-column">
                                 <p class="producto-categoria">Tendencias</p>
-                                <h2 class="blog-titulo">Fragancias unisex: aromas sin etiquetas</h2>
+                                <h2 class="blog-titulo">Aromas unisex que combinan con todo</h2>
                                 <p class="producto-descripcion">
-                                    Las fragancias unisex mezclan notas amaderadas, dulces y frescas para adaptarse a distintos estilos.
+                                    Las fragancias unisex mezclan acordes amaderados, dulces y especiados para adaptarse a distintos gustos.
                                 </p>
-                                <a href="productos.html" class="btn btn-outline-perfulandia">Ver unisex</a>
+                                <a href="productos.html" class="btn btn-outline-perfulandia mt-auto">Ver unisex</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <article class="col-md-6 col-lg-4">
+                        <div class="card blog-card h-100">
+                            <img src="../img/Perfume6.webp" class="card-img-top" alt="Perfume calido y envolvente">
+                            <div class="card-body d-flex flex-column">
+                                <p class="producto-categoria">Cuidado</p>
+                                <h2 class="blog-titulo">Tips para que tu perfume dure mas</h2>
+                                <p class="producto-descripcion">
+                                    Aplicarlo en zonas de pulso, hidratar la piel y guardarlo lejos del calor ayuda a mantener mejor su aroma.
+                                </p>
+                                <a href="contacto.html" class="btn btn-outline-perfulandia mt-auto">Pedir recomendacion</a>
                             </div>
                         </div>
                     </article>
                 </div>
             </div>
+
+                <section class="blog-recomendaciones mt-5">
+                    <div class="text-center mb-4">
+                        <p class="section-subtitulo">Recomendaciones</p>
+                        <h2>Elige segun tu piel y temporada</h2>
+                        <p class="section-descripcion">
+                            El mismo perfume puede sentirse distinto segun tu piel, el clima y el momento del dia.
+                        </p>
+                    </div>
+
+                    <div class="row g-4">
+                        <article class="col-lg-6">
+                            <div class="blog-guia h-100">
+                                <div class="blog-guia-icono">
+                                    <i class="bi bi-droplet-half"></i>
+                                </div>
+
+                                <h3>Segun tu piel y pH</h3>
+
+                                <ul>
+                                    <li><strong>Piel seca:</strong> prefiere aromas amaderados, dulces o especiados; duran mejor si hidratas antes.</li>
+                                    <li><strong>Piel grasa:</strong> las fragancias suelen fijarse mas, por eso van bien aromas frescos, florales o citricos.</li>
+                                    <li><strong>Piel sensible:</strong> prueba primero en una zona pequena y usa fragancias suaves para el dia a dia.</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                        <article class="col-lg-6">
+                            <div class="blog-guia h-100">
+                                <div class="blog-guia-icono">
+                                    <i class="bi bi-sun"></i>
+                                </div>
+
+                                <h3>Segun la temporada</h3>
+
+                                <ul>
+                                    <li><strong>Primavera:</strong> florales, frutales suaves y aromas limpios.</li>
+                                    <li><strong>Verano:</strong> citricos, acuaticos y frescos para no saturar con el calor.</li>
+                                    <li><strong>Otono:</strong> vainilla, especias suaves, ambar y notas amaderadas.</li>
+                                    <li><strong>Invierno:</strong> perfumes intensos, dulces, orientales o con mayor fijacion.</li>
+                                </ul>
+                            </div>
+                        </article>
+                    </div>
+                </section>
         </section>
     </main>
 
@@ -116,15 +198,17 @@
                     <h2 class="footer-logo">Perfulandia</h2>
                     <p>Fragancias para acompañar tus mejores momentos.</p>
                 </div>
+
                 <div class="col-md-4">
                     <h3>Navegacion</h3>
                     <ul class="list-unstyled">
                         <li><a href="../index.html">Inicio</a></li>
                         <li><a href="productos.html">Productos</a></li>
                         <li><a href="nosotros.html">Nosotros</a></li>
-                        <li><a href="blogs.html">Blog</a></li>
+                        <li><a href="contacto.html">Contacto</a></li>
                     </ul>
                 </div>
+
                 <div class="col-md-4">
                     <h3>Siguenos</h3>
                     <div class="redes">
@@ -134,7 +218,9 @@
                     </div>
                 </div>
             </div>
+
             <hr>
+
             <div class="text-center">
                 <small>© 2026 Perfulandia. Proyecto Desarrollo Fullstack II.</small>
             </div>

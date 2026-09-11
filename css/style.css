@@ -2163,3 +2163,263 @@ a {
         width: 130px;
     }
 }
+
+/* =====================================================
+   BLOG INTEGRADO
+===================================================== */
+
+.blog-hero {
+    background-color: var(--rosa-claro);
+    padding-top: 85px;
+    padding-bottom: 85px;
+}
+
+.blog-hero h1 {
+    font-size: clamp(2.4rem, 5vw, 4.4rem);
+    margin-bottom: 18px;
+}
+
+.blog-hero-texto {
+    color: var(--gris);
+    max-width: 680px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 0;
+    line-height: 1.8;
+}
+
+.blog-contenido {
+    background-color: var(--beige-claro);
+}
+
+.blog-destacado {
+    background-color: var(--blanco);
+    border-radius: 22px;
+    padding: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.blog-destacado img {
+    width: 100%;
+    height: 360px;
+    object-fit: cover;
+    border-radius: 18px;
+    background-color: var(--rosa-claro);
+}
+
+.blog-destacado h2 {
+    font-size: clamp(1.8rem, 3vw, 2.7rem);
+    margin-bottom: 18px;
+}
+
+.blog-destacado p:not(.producto-categoria) {
+    color: var(--gris);
+    line-height: 1.8;
+    margin-bottom: 24px;
+}
+
+@media (max-width: 768px) {
+    .blog-hero {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .blog-destacado {
+        padding: 20px;
+    }
+
+    .blog-destacado img {
+        height: 260px;
+    }
+}
+
+/* Ajuste imagenes blog: mostrar frascos completos */
+.blog-card img,
+.blog-destacado img {
+    object-fit: contain;
+    background-color: var(--rosa-claro);
+    padding: 18px;
+}
+
+.blog-card img {
+    height: 280px;
+}
+
+.blog-destacado img {
+    height: 380px;
+}
+
+@media (max-width: 768px) {
+    .blog-card img {
+        height: 240px;
+    }
+
+    .blog-destacado img {
+        height: 280px;
+    }
+}
+
+/* Recomendaciones del blog */
+.blog-recomendaciones {
+    background-color: rgba(255, 255, 255, 0.55);
+    border-radius: 22px;
+    padding: 34px;
+}
+
+.blog-guia {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.blog-guia-icono {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+    font-size: 1.5rem;
+    margin-bottom: 18px;
+}
+
+.blog-guia h3 {
+    font-size: 1.35rem;
+    margin-bottom: 16px;
+}
+
+.blog-guia ul {
+    padding-left: 18px;
+    margin-bottom: 0;
+}
+
+.blog-guia li {
+    color: var(--gris);
+    line-height: 1.7;
+    margin-bottom: 12px;
+}
+
+.blog-guia li:last-child {
+    margin-bottom: 0;
+}
+
+.blog-guia strong {
+    color: var(--texto);
+}
+
+@media (max-width: 768px) {
+    .blog-recomendaciones {
+        padding: 22px;
+    }
+}
+
+/* Formulario de datos en carrito */
+.datos-compra {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.datos-compra h2 {
+    font-size: 1.4rem;
+    margin-bottom: 0;
+}
+
+.cliente-estado {
+    display: inline-flex;
+    align-items: center;
+    border-radius: 30px;
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 8px 14px;
+}
+
+.datos-compra .form-control:focus,
+.datos-compra .form-select:focus {
+    border-color: var(--rosa-principal);
+    box-shadow: 0 0 0 0.20rem rgba(217, 167, 176, 0.20);
+}
+
+/* Ajuste visual carrito con estilo de registro */
+.datos-compra.registro-card {
+    max-width: 620px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.datos-compra .logo-registro {
+    width: 130px;
+}
+
+.datos-compra .section-subtitulo {
+    letter-spacing: 2px;
+}
+
+.datos-compra .form-text {
+    color: #777777;
+}
+
+.datos-compra .cliente-estado {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Ajuste logos crear cuenta */
+.logo-registro-navbar {
+    width: 160px;
+    height: auto;
+    object-fit: contain;
+}
+
+.logo-registro {
+    width: 170px;
+    height: auto;
+    object-fit: contain;
+}
+
+@media (max-width: 576px) {
+    .logo-registro-navbar {
+        width: 130px;
+    }
+
+    .logo-registro {
+        width: 140px;
+    }
+}
+
+.detalle-pago {
+    background-color: var(--rosa-claro);
+    border: 1px solid rgba(201, 125, 143, 0.28);
+    border-radius: 8px;
+    padding: 18px;
+}
+
+.detalle-pago h3 {
+    color: var(--cafe-oscuro);
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.detalle-pago ul {
+    list-style: none;
+    margin: 0 0 12px;
+    padding: 0;
+}
+
+.detalle-pago li {
+    color: var(--gris-texto);
+    margin-bottom: 6px;
+}
+
+.detalle-pago p {
+    color: var(--gris-texto);
+    margin: 0;
+}

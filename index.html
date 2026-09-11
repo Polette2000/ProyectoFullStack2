@@ -37,7 +37,7 @@
         <!-- NAVBAR -->
         <nav class="navbar navbar-expand-lg navbar-light navbar-perfulandia">
 
-            <div class="container">
+            <div class="container-fluid px-5">
 
                 <!-- LOGO -->
                 <a class="navbar-brand d-flex align-items-center" href="index.html">
@@ -48,7 +48,8 @@
                         class="logo">
 
                     <span class="nombre-marca">
-                        Perfulandia
+                        
+    
                     </span>
 
                 </a>
@@ -172,81 +173,99 @@
     ========================== -->
     <main>
 
+<!-- =========================
+     BANNER / CARRUSEL
+========================== -->
+<section class="banner-home">
 
-        <!-- =========================
-             HERO
-        ========================== -->
-        <section class="hero">
+    <div
+        id="carouselPerfulandia"
+        class="carousel slide carousel-fade"
+        data-bs-ride="carousel"
+        data-bs-interval="3500">
 
-            <div class="container">
+        <!-- INDICADORES -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Banner 1"></button>
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="1" aria-label="Banner 2"></button>
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="2" aria-label="Banner 3"></button>
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="3" aria-label="Banner 4"></button>
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="4" aria-label="Banner 5"></button>
+            <button type="button" data-bs-target="#carouselPerfulandia" data-bs-slide-to="5" aria-label="Banner 6"></button>
+        </div>
 
-                <div class="row align-items-center min-vh-75">
+        <!-- IMÁGENES -->
+        <div class="carousel-inner">
 
-
-                    <!-- TEXTO -->
-                    <div class="col-lg-6 hero-texto">
-
-                        <p class="hero-subtitulo">
-                            Fragancias que cuentan historias
-                        </p>
-
-                        <h1>
-                            Encuentra el aroma
-                            que te representa
-                        </h1>
-
-                        <p class="hero-descripcion">
-
-                            Descubre nuestra selección de perfumes
-                            pensados para acompañarte en cada momento.
-
-                        </p>
-
-
-                        <div class="d-flex flex-wrap gap-3">
-
-                            <a
-                                href="pages/productos.html"
-                                class="btn btn-perfulandia btn-lg">
-
-                                Ver perfumes
-
-                            </a>
-
-
-                            <a
-                                href="pages/nosotros.html"
-                                class="btn btn-outline-perfulandia btn-lg">
-
-                                Conócenos
-
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <!-- IMAGEN -->
-                    <div class="col-lg-6 mt-5 mt-lg-0">
-
-                        <div class="hero-imagen">
-
-                            <img
-                                src="img/hero-perfulandia.jpg"
-                                alt="Colección de perfumes Perfulandia"
-                                class="img-fluid">
-
-                        </div>
-
-                    </div>
-
-
-                </div>
-
+            <div class="carousel-item active">
+                <img
+                    src="img/banner1.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 1">
             </div>
 
-        </section>
+            <div class="carousel-item">
+                <img
+                    src="img/banner2.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 2">
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="img/banner3.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 3">
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="img/banner4.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 4">
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="img/banner5.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 5">
+            </div>
+
+            <div class="carousel-item">
+                <img
+                    src="img/banner6.png"
+                    class="d-block w-100 banner-img"
+                    alt="Banner perfume 6">
+            </div>
+
+        </div>
+
+        <!-- FLECHA IZQUIERDA -->
+        <button
+            class="carousel-control-prev"
+            type="button"
+            data-bs-target="#carouselPerfulandia"
+            data-bs-slide="prev">
+
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+        </button>
+
+        <!-- FLECHA DERECHA -->
+        <button
+            class="carousel-control-next"
+            type="button"
+            data-bs-target="#carouselPerfulandia"
+            data-bs-slide="next">
+
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+        </button>
+
+    </div>
+
+</section>
 
 
 
@@ -365,9 +384,9 @@
                         <div class="card producto-card h-100">
 
                             <img
-                                src="img/perfume1.jpg"
+                                src="img/Perfume5.webp"
                                 class="card-img-top"
-                                alt="Perfume Floral Essence">
+                                alt="Paco Rabanne Olympea">
 
                             <div class="card-body text-center">
 
@@ -376,7 +395,7 @@
                                 </p>
 
                                 <h3 class="producto-nombre">
-                                    Floral Essence
+                                    Paco Rabanne Olympea
                                 </h3>
 
                                 <p class="producto-precio">
@@ -405,7 +424,7 @@
                         <div class="card producto-card h-100">
 
                             <img
-                                src="img/perfume2.jpg"
+                                src="img/Perfume8.webp"
                                 class="card-img-top"
                                 alt="Perfume Rose Velvet">
 
@@ -416,11 +435,11 @@
                                 </p>
 
                                 <h3 class="producto-nombre">
-                                    Rose Velvet
+                                    Power Of You EDP 50 ML
                                 </h3>
 
                                 <p class="producto-precio">
-                                    $44.990
+                                    $49.990
                                 </p>
 
                                 <a
@@ -445,7 +464,7 @@
                         <div class="card producto-card h-100">
 
                             <img
-                                src="img/perfume3.jpg"
+                                src="img/Perfume11.webp"
                                 class="card-img-top"
                                 alt="Perfume Elegance">
 
@@ -456,7 +475,7 @@
                                 </p>
 
                                 <h3 class="producto-nombre">
-                                    Elegance
+                                    Azzaro The Most Wanted Intense EDT 100 ML
                                 </h3>
 
                                 <p class="producto-precio">
@@ -513,7 +532,7 @@
                     <div class="col-lg-6">
 
                         <img
-                            src="img/nosotros.jpg"
+                            src="img/Logo.png"
                             alt="Perfulandia"
                             class="img-fluid imagen-nosotros">
 

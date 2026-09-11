@@ -778,3 +778,275 @@ a {
     margin-right: 8px;
 
 }
+/* =====================================================
+   BLOG
+===================================================== */
+
+.blog-card {
+    border: none;
+    border-radius: 20px;
+    overflow: hidden;
+    background-color: var(--blanco);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.blog-card img {
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.blog-titulo {
+    font-size: 1.35rem;
+    margin-bottom: 15px;
+}
+
+/* =====================================================
+   CARRITO
+===================================================== */
+
+.carrito-lista {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.carrito-item {
+    display: grid;
+    grid-template-columns: 90px 1fr auto auto auto;
+    align-items: center;
+    gap: 18px;
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 18px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.carrito-item img {
+    width: 90px;
+    height: 90px;
+    object-fit: cover;
+    border-radius: 16px;
+    background-color: var(--rosa-claro);
+}
+
+.carrito-item-info h2 {
+    font-size: 1rem;
+    margin-bottom: 8px;
+}
+
+.carrito-item-info p {
+    color: var(--gris);
+    margin-bottom: 0;
+}
+
+.carrito-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.carrito-cantidad button,
+.carrito-eliminar {
+    width: 34px;
+    height: 34px;
+    border: 1px solid var(--rosa-principal);
+    border-radius: 50%;
+    background-color: var(--blanco);
+    color: var(--rosa-oscuro);
+}
+
+.carrito-cantidad span {
+    min-width: 24px;
+    text-align: center;
+    font-weight: 600;
+}
+
+.carrito-subtotal {
+    white-space: nowrap;
+}
+
+.carrito-eliminar {
+    border-color: #e3b5bd;
+}
+
+.resumen-compra {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 28px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 24px;
+}
+
+.resumen-compra h2 {
+    font-size: 1.4rem;
+    margin-bottom: 22px;
+}
+
+.resumen-total {
+    font-size: 1.2rem;
+}
+
+/* =====================================================
+   ADMIN
+===================================================== */
+
+.admin-body {
+    background-color: var(--beige-claro);
+}
+
+.admin-header {
+    background-color: var(--blanco);
+    border-bottom: 1px solid #eeeeee;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.admin-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.admin-nav a {
+    color: var(--texto);
+    padding: 8px 14px;
+    border-radius: 30px;
+}
+
+.admin-nav a:hover,
+.admin-nav a.active {
+    background-color: var(--rosa-claro);
+    color: var(--rosa-oscuro);
+}
+
+.admin-main {
+    padding-top: 50px;
+    padding-bottom: 60px;
+}
+
+.admin-page-title {
+    margin-bottom: 32px;
+}
+
+.admin-page-title h1 {
+    font-size: clamp(2rem, 4vw, 3.2rem);
+}
+
+.admin-page-title p:not(.section-subtitulo) {
+    color: var(--gris);
+    margin-bottom: 0;
+}
+
+.admin-stat,
+.admin-panel,
+.admin-form,
+.admin-table-wrap {
+    background-color: var(--blanco);
+    border-radius: 20px;
+    padding: 24px;
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.06);
+}
+
+.admin-stat {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-stat i {
+    font-size: 1.8rem;
+    color: var(--rosa-oscuro);
+}
+
+.admin-stat span,
+.admin-panel p {
+    color: var(--gris);
+}
+
+.admin-stat strong {
+    font-size: 2rem;
+}
+
+.admin-panel h2 {
+    font-size: 1.4rem;
+}
+
+.admin-table-wrap {
+    overflow-x: auto;
+}
+
+.admin-table {
+    margin-bottom: 0;
+}
+
+.admin-table th {
+    color: var(--gris);
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.admin-producto {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    min-width: 320px;
+}
+
+.admin-producto img {
+    width: 64px;
+    height: 64px;
+    object-fit: cover;
+    border-radius: 14px;
+    background-color: var(--rosa-claro);
+}
+
+.admin-producto p {
+    color: var(--gris);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+.estado-stock {
+    display: inline-block;
+    padding: 6px 12px;
+    border-radius: 30px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.estado-stock.disponible {
+    background-color: #e9f7ef;
+    color: #28784b;
+}
+
+.estado-stock.sin-stock {
+    background-color: #fdecee;
+    color: #b8404f;
+}
+
+.admin-form .form-control:focus,
+.admin-form .form-select:focus {
+    border-color: var(--rosa-principal);
+    box-shadow: 0 0 0 0.20rem rgba(217, 167, 176, 0.20);
+}
+
+@media (max-width: 768px) {
+    .carrito-item {
+        grid-template-columns: 76px 1fr;
+    }
+
+    .carrito-cantidad,
+    .carrito-subtotal,
+    .carrito-eliminar {
+        grid-column: 2;
+        justify-self: start;
+    }
+
+    .carrito-item img {
+        width: 76px;
+        height: 76px;
+    }
+}

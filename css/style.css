@@ -1780,3 +1780,41 @@ a {
     }
 
 }
+/* =========================================
+   SELECTOR DE CANTIDAD
+========================================= */
+
+.selector-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.btn-cantidad {
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid #d6bcbc;
+    border-radius: 50%;
+
+    background-color: white;
+
+    font-size: 22px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+}
+
+.btn-cantidad:hover {
+    background-color: #f5eaea;
+}
+
+#cantidadProducto {
+    min-width: 30px;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+}

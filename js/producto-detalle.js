@@ -278,40 +278,42 @@ function mostrarDetalleProducto() {
 
                 <div class="mt-4">
 
-                    <label
-                        for="cantidadProducto"
-                        class="form-label">
+                    <label class="form-label">
 
                         Cantidad
 
                     </label>
 
 
-                    <select
-                        id="cantidadProducto"
-                        class="form-select cantidad-producto">
+                    <div class="selector-cantidad">
 
-                        <option value="1">
+                        <button
+                            type="button"
+                            class="btn-cantidad"
+                            onclick="disminuirCantidad()">
+
+                            -
+
+                        </button>
+
+
+                        <span id="cantidadProducto">
+
                             1
-                        </option>
 
-                        <option value="2">
-                            2
-                        </option>
+                        </span>
 
-                        <option value="3">
-                            3
-                        </option>
 
-                        <option value="4">
-                            4
-                        </option>
+                        <button
+                            type="button"
+                            class="btn-cantidad"
+                            onclick="aumentarCantidad()">
 
-                        <option value="5">
-                            5
-                        </option>
+                            +
 
-                    </select>
+                        </button>
+
+                    </div>
 
                 </div>
 
@@ -374,6 +376,65 @@ function formatearPrecio(precio) {
 
 
 // =======================================================
+// AUMENTAR CANTIDAD
+// =======================================================
+
+function aumentarCantidad() {
+
+    const cantidadElemento =
+        document.getElementById(
+            "cantidadProducto"
+        );
+
+
+    let cantidad =
+        Number(
+            cantidadElemento.textContent
+        );
+
+
+    cantidad++;
+
+
+    cantidadElemento.textContent =
+        cantidad;
+
+}
+
+
+// =======================================================
+// DISMINUIR CANTIDAD
+// =======================================================
+
+function disminuirCantidad() {
+
+    const cantidadElemento =
+        document.getElementById(
+            "cantidadProducto"
+        );
+
+
+    let cantidad =
+        Number(
+            cantidadElemento.textContent
+        );
+
+
+    // La cantidad mínima será 1
+    if (cantidad > 1) {
+
+        cantidad--;
+
+
+        cantidadElemento.textContent =
+            cantidad;
+
+    }
+
+}
+
+
+// =======================================================
 // AGREGAR AL CARRITO
 // =======================================================
 
@@ -392,7 +453,7 @@ function agregarDetalleAlCarrito() {
         Number(
             document.getElementById(
                 "cantidadProducto"
-            ).value
+            ).textContent
         );
 
 

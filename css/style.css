@@ -750,17 +750,18 @@ a {
     color: #666666;
 }
 
+
 /* Logo del navbar */
-.logo-navbar {
-    width: 160px;
-    height: auto;
-    object-fit: contain;
+.logo-login-navbar { 
+    width: 160px; 
+    height: auto; 
+    object-fit: contain; 
 }
 
 
 /* Logo del formulario login */
 .logo-login {
-    width: 170px;
+    width: 160px;
     height: auto;
     object-fit: contain;
 }

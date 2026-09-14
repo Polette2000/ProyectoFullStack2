@@ -210,11 +210,57 @@ function eliminarProductoAdmin(idProducto) {
     renderizarTablaProductos();
 }
 
+function mostrarPreviewImagenProducto(rutaImagen) {
+    const preview = document.getElementById("previewImagenProducto");
+
+    if (!preview) {
+        return;
+    }
+
+    if (!rutaImagen) {
+        preview.classList.add("d-none");
+        preview.removeAttribute("src");
+        return;
+    }
+
+    preview.src = rutaImagen;
+    preview.classList.remove("d-none");
+}
 function cargarFormularioProducto() {
     const formulario = document.getElementById("formProductoAdmin");
+    const imagenProducto = document.getElementById("imagenProducto");
+    const archivoImagenProducto = document.getElementById("archivoImagenProducto");
 
     if (!formulario) {
         return;
+    }
+
+    if (archivoImagenProducto && imagenProducto) {
+        archivoImagenProducto.addEventListener("change", function () {
+            const archivo = archivoImagenProducto.files[0];
+
+            if (!archivo) {
+                return;
+            }
+
+            if (!archivo.type.startsWith("image/")) {
+                const mensaje = document.getElementById("mensajeProductoAdmin");
+                archivoImagenProducto.value = "";
+
+                if (mensaje) {
+                    mensaje.innerHTML = '<div class="alert alert-danger">Selecciona un archivo de imagen valido.</div>';
+                }
+
+                return;
+            }
+
+            const lector = new FileReader();
+            lector.addEventListener("load", function () {
+                imagenProducto.value = lector.result;
+                mostrarPreviewImagenProducto(lector.result);
+            });
+            lector.readAsDataURL(archivo);
+        });
     }
 
     const parametros = new URLSearchParams(window.location.search);
@@ -231,7 +277,8 @@ function cargarFormularioProducto() {
         document.getElementById("categoriaProducto").value = producto.categoria;
         document.getElementById("precioProducto").value = producto.precio;
         document.getElementById("stockProducto").value = producto.stock;
-        document.getElementById("imagenProducto").value = producto.imagen;
+        imagenProducto.value = producto.imagen;
+        mostrarPreviewImagenProducto(producto.imagen);
         document.getElementById("descripcionProducto").value = producto.descripcion;
     }
 
@@ -245,9 +292,19 @@ function cargarFormularioProducto() {
             categoria: document.getElementById("categoriaProducto").value,
             precio: Number(document.getElementById("precioProducto").value),
             stock: Number(document.getElementById("stockProducto").value),
-            imagen: document.getElementById("imagenProducto").value.trim(),
+            imagen: imagenProducto.value.trim(),
             descripcion: document.getElementById("descripcionProducto").value.trim()
         };
+
+        if (!datosProducto.imagen) {
+            const mensaje = document.getElementById("mensajeProductoAdmin");
+
+            if (mensaje) {
+                mensaje.innerHTML = '<div class="alert alert-danger">Selecciona una imagen para el producto.</div>';
+            }
+
+            return;
+        }
 
         const productosActualizados = obtenerProductosAdmin();
         const indiceProducto = productosActualizados.findIndex(function (item) {
@@ -289,4 +346,6 @@ document.addEventListener("DOMContentLoaded", function () {
     cargarFormularioProducto();
     renderizarDashboardAdmin();
 });
+
+
 

@@ -69,7 +69,7 @@ function obtenerStockProductoCarrito(idProducto, productoCarrito = {}) {
                 return Number(productoAdmin.stock);
             }
         } catch (error) {
-            // Si localStorage tiene datos corruptos, usamos el stock guardado en el item.
+            // Si localStorage tiene datos corruptos, se usa el stock guardado en el item.
         }
     }
 
@@ -226,7 +226,7 @@ function precargarDatosCliente() {
         localStorage.removeItem("clienteActivo");
     }
 
-    ["nombreCliente", "correoCliente", "telefonoCliente", "direccionCliente"].forEach(function (idCampo) {
+    ["nombreCliente", "rutCliente", "correoCliente", "telefonoCliente", "fechaNacimientoCliente", "direccionCliente"].forEach(function (idCampo) {
         const campo = document.getElementById(idCampo);
 
         if (campo) {
@@ -238,12 +238,48 @@ function precargarDatosCliente() {
     estadoCliente.textContent = "Ingresa tus datos para el despacho";
 }
 
+function validarRutCliente(valor) {
+    const rutLimpio = valor.trim().toUpperCase();
+
+    if (rutLimpio === "") {
+        return false;
+    }
+
+    if (rutLimpio.length < 7 || rutLimpio.length > 9) {
+        return false;
+    }
+
+    return /^[0-9]+[0-9K]$/.test(rutLimpio);
+}
+function esMayorDeEdad(fechaValor) {
+    if (!fechaValor) {
+        return false;
+    }
+
+    const fechaNacimiento = new Date(fechaValor + "T00:00:00");
+    const hoy = new Date();
+
+    if (fechaNacimiento > hoy) {
+        return false;
+    }
+
+    let edad = hoy.getFullYear() - fechaNacimiento.getFullYear();
+    const mes = hoy.getMonth() - fechaNacimiento.getMonth();
+
+    if (mes < 0 || (mes === 0 && hoy.getDate() < fechaNacimiento.getDate())) {
+        edad--;
+    }
+
+    return edad >= 18;
+}
 function validarDatosCompra() {
     if (!formDatosCompra) {
         return true;
     }
 
     const campos = formDatosCompra.querySelectorAll("input, select, textarea");
+    const fechaNacimientoCliente = document.getElementById("fechaNacimientoCliente");
+    const rutCliente = document.getElementById("rutCliente");
     let formularioValido = true;
 
     campos.forEach(function (campo) {
@@ -261,6 +297,16 @@ function validarDatosCompra() {
             formularioValido = false;
         }
     });
+
+    if (rutCliente && !validarRutCliente(rutCliente.value)) {
+        rutCliente.classList.add("is-invalid");
+        formularioValido = false;
+    }
+
+    if (fechaNacimientoCliente && !esMayorDeEdad(fechaNacimientoCliente.value)) {
+        fechaNacimientoCliente.classList.add("is-invalid");
+        formularioValido = false;
+    }
 
     return formularioValido;
 }
@@ -343,8 +389,10 @@ if (btnFinalizarCompra) {
         const pedido = {
             cliente: {
                 nombre: document.getElementById("nombreCliente").value.trim(),
+                rut: document.getElementById("rutCliente").value.trim().toUpperCase(),
                 correo: document.getElementById("correoCliente").value.trim(),
                 telefono: document.getElementById("telefonoCliente").value.trim(),
+                fechaNacimiento: document.getElementById("fechaNacimientoCliente").value,
                 region: document.getElementById("regionCliente").value.trim(),
                 comuna: document.getElementById("comunaCliente").value.trim(),
                 direccion: document.getElementById("direccionCliente").value.trim(),
@@ -373,6 +421,9 @@ document.addEventListener("DOMContentLoaded", function () {
     precargarDatosCliente();
     renderizarCarrito();
 });
+
+
+
 
 
 

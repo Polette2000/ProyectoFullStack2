@@ -2037,6 +2037,15 @@ a {
     margin-bottom: 0;
 }
 
+.producto-form-preview {
+    width: 120px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 1px solid #ead8dd;
+    background-color: var(--rosa-claro);
+}
+
 .estado-stock {
     display: inline-block;
     padding: 6px 12px;
@@ -2458,3 +2467,4 @@ a {
     color: var(--gris-texto);
     margin: 0;
 }
+

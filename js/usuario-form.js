@@ -61,6 +61,7 @@ const errorRut = document.getElementById("errorRut");
 const errorNombre = document.getElementById("errorNombre");
 const errorApellidos = document.getElementById("errorApellidos");
 const errorCorreo = document.getElementById("errorCorreo");
+const errorFechaNacimiento = document.getElementById("errorFechaNacimiento");
 const errorTipoUsuario = document.getElementById("errorTipoUsuario");
 const errorRegion = document.getElementById("errorRegion");
 const errorComuna = document.getElementById("errorComuna");
@@ -306,6 +307,33 @@ function validarDireccion(valor) {
 }
 
 
+
+function validarFechaNacimiento(valor) {
+
+    if (valor === "") {
+        return {
+            valido: true,
+            mensaje: ""
+        };
+    }
+
+    const fechaIngresada = new Date(valor + "T00:00:00");
+    const hoy = new Date();
+    hoy.setHours(0, 0, 0, 0);
+
+    if (fechaIngresada > hoy) {
+        return {
+            valido: false,
+            mensaje: "La fecha de nacimiento no puede ser futura."
+        };
+    }
+
+    return {
+        valido: true,
+        mensaje: ""
+    };
+}
+
 // Cargar regiones
 function cargarRegiones() {
 
@@ -426,6 +454,18 @@ comuna.addEventListener("change", function () {
 });
 
 
+
+// Fecha de nacimiento
+fechaNacimiento.addEventListener("blur", function () {
+
+    mostrarResultado(
+        fechaNacimiento,
+        errorFechaNacimiento,
+        validarFechaNacimiento(fechaNacimiento.value)
+    );
+
+});
+
 // Tipo usuario
 tipoUsuario.addEventListener("change", function () {
 
@@ -535,6 +575,9 @@ formUsuario.addEventListener("submit", function (event) {
     const resultadoCorreo =
         validarCorreo(correo.value);
 
+    const resultadoFechaNacimiento =
+        validarFechaNacimiento(fechaNacimiento.value);
+
     const resultadoTipoUsuario =
         validarSeleccion(
             tipoUsuario.value,
@@ -584,6 +627,12 @@ formUsuario.addEventListener("submit", function (event) {
     );
 
     mostrarResultado(
+        fechaNacimiento,
+        errorFechaNacimiento,
+        resultadoFechaNacimiento
+    );
+
+    mostrarResultado(
         tipoUsuario,
         errorTipoUsuario,
         resultadoTipoUsuario
@@ -614,6 +663,7 @@ formUsuario.addEventListener("submit", function (event) {
         resultadoNombre.valido &&
         resultadoApellidos.valido &&
         resultadoCorreo.valido &&
+        resultadoFechaNacimiento.valido &&
         resultadoTipoUsuario.valido &&
         resultadoRegion.valido &&
         resultadoComuna.valido &&
@@ -686,41 +736,10 @@ formUsuario.addEventListener("submit", function (event) {
         </div>
     `;
 
-    // Volver a usuarios al editar
-    if (indiceEditar !== null) {
-
-        setTimeout(function () {
-            window.location.href = "usuarios.html";
-        }, 1000);
-
-        return;
-    }
-
-    // Limpiar solo al crear
-    if (indiceEditar === null) {
-
-        formUsuario.reset();
-
-        comuna.innerHTML = `
-            <option value="">
-                Seleccione una comuna
-            </option>
-        `;
-
-        comuna.disabled = true;
-
-        formUsuario
-            .querySelectorAll(".is-valid, .is-invalid")
-            .forEach(function (campo) {
-
-                campo.classList.remove(
-                    "is-valid",
-                    "is-invalid"
-                );
-
-            });
-
-    }
+    // Volver a la lista para ver el usuario creado o editado
+    setTimeout(function () {
+        window.location.href = "usuarios.html";
+    }, 1000);
 
 });
 
@@ -728,3 +747,5 @@ formUsuario.addEventListener("submit", function (event) {
 // Inicio
 cargarRegiones();
 cargarUsuarioEditar();
+
+

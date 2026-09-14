@@ -229,35 +229,6 @@
                         <!-- FORMULARIO REGISTRO-->
                         <form id="formRegistro" novalidate>
 
-                            <!-- RUT -->
-                            <div class="mb-3">
-                                <label for="rut" class="form-label">
-                                    RUT
-                                </label>
-
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    id="rut"
-                                    name="rut"
-                                    minlength="7"
-                                    maxlength="9"
-                                    placeholder="1000005K"
-                                    required
-                                >
-
-                                <div class="form-text">
-                                    Ingresa el RUT sin puntos ni guion, incluyendo el dígito verificador.
-                                    Ejemplo: 1000005K
-                                </div>
-
-                                <div
-                                    id="errorRut"
-                                    class="text-danger small mt-1">
-                                </div>
-                            </div>
-
-
                             <!-- NOMBRE -->
                             <div class="mb-3">
                                 <label for="nombre" class="form-label">
@@ -306,6 +277,57 @@
                             </div>
 
 
+                            <!-- RUT -->
+                            <div class="mb-3">
+                                <label for="rut" class="form-label">
+                                    RUT
+                                </label>
+
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="rut"
+                                    name="rut"
+                                    minlength="7"
+                                    maxlength="9"
+                                    placeholder="1000005K"
+                                    required
+                                >
+
+                                <div class="form-text">
+                                    Ingresa el RUT sin puntos ni guion, incluyendo el dígito verificador.
+                                    Ejemplo: 1000005K
+                                </div>
+
+                                <div
+                                    id="errorRut"
+                                    class="text-danger small mt-1">
+                                </div>
+                            </div>
+
+
+                            <!-- FECHA DE NACIMIENTO -->
+                            <div class="mb-3">
+                                <label for="fechaNacimiento" class="form-label">
+                                    Fecha de nacimiento
+                                </label>
+
+                                <input
+                                    type="date"
+                                    class="form-control"
+                                    id="fechaNacimiento"
+                                    name="fechaNacimiento"
+                                    autocomplete="bday"
+                                    required
+                                >
+
+                                <div class="invalid-feedback" id="errorFechaNacimiento"></div>
+
+                                <div class="form-text">
+Debes tener 18 años o más para crear una cuenta.
+                                </div>
+                            </div>
+
                             <!-- CORREO -->
                             <div class="mb-3">
                                 <label for="correo" class="form-label">
@@ -333,27 +355,6 @@
                                     class="text-danger small mt-1">
                                 </div>
                             </div>
-
-
-                            <!-- FECHA DE NACIMIENTO -->
-                            <div class="mb-3">
-                                <label for="fechaNacimiento" class="form-label">
-                                    Fecha de nacimiento
-                                </label>
-
-                                <input
-                                    type="date"
-                                    class="form-control"
-                                    id="fechaNacimiento"
-                                    name="fechaNacimiento"
-                                    autocomplete="bday"
-                                >
-
-                                <div class="form-text">
-                                    Este campo es opcional.
-                                </div>
-                            </div>
-
 
                             <!-- REGIÓN -->
                             <div class="mb-3">
@@ -579,8 +580,14 @@
     <script src="../js/main.js"></script>
 
     <!-- JavaScript del registro -->
-    <script src="../js/registro.js"></script>
+    <script src="../js/registro.js?v=edad-18-1"></script>
 
 </body>
 
 </html>
+
+
+
+
+
+

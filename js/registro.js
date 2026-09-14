@@ -18,6 +18,9 @@ document.addEventListener("DOMContentLoaded", function () {
     const correo =
         document.getElementById("correo");
 
+    const fechaNacimiento =
+        document.getElementById("fechaNacimiento");
+
     const region =
         document.getElementById("region");
 
@@ -50,6 +53,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const errorCorreo =
         document.getElementById("errorCorreo");
+
+    const errorFechaNacimiento =
+        document.getElementById("errorFechaNacimiento");
 
     const errorRegion =
         document.getElementById("errorRegion");
@@ -304,6 +310,50 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
    
+
+
+    // VALIDAR FECHA DE NACIMIENTO
+
+    function validarFechaNacimiento(fechaValor) {
+
+        if (fechaValor === "") {
+            return {
+                valido: false,
+                mensaje: "La fecha de nacimiento es obligatoria."
+            };
+        }
+
+        const fechaIngresada = new Date(fechaValor + "T00:00:00");
+        const hoy = new Date();
+        hoy.setHours(0, 0, 0, 0);
+
+        if (fechaIngresada > hoy) {
+            return {
+                valido: false,
+                mensaje: "La fecha de nacimiento no puede ser futura."
+            };
+        }
+
+        let edad = hoy.getFullYear() - fechaIngresada.getFullYear();
+        const mes = hoy.getMonth() - fechaIngresada.getMonth();
+
+        if (mes < 0 || (mes === 0 && hoy.getDate() < fechaIngresada.getDate())) {
+            edad--;
+        }
+
+        if (edad < 18) {
+            return {
+                valido: false,
+                mensaje: "Debes tener 18 años o más para crear una cuenta."
+            };
+        }
+
+        return {
+            valido: true,
+            mensaje: ""
+        };
+    }
+
     // VALIDAR PASSWORD
     
 
@@ -634,7 +684,9 @@ document.addEventListener("DOMContentLoaded", function () {
             mostrarResultado(
                 rut,
                 errorRut,
-                resultadoRut
+                !resultadoRut.valido
+                    ? resultadoRut
+                    : resultadoRutRepetido
             );
 
             return;
@@ -782,6 +834,19 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 
+
+    // FECHA DE NACIMIENTO
+
+    fechaNacimiento.addEventListener("blur", function () {
+
+        mostrarResultado(
+            fechaNacimiento,
+            errorFechaNacimiento,
+            validarFechaNacimiento(fechaNacimiento.value)
+        );
+
+    });
+
     // SUBMIT
 
     formRegistro.addEventListener(
@@ -800,6 +865,9 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultadoRut =
                 validarRut(rut.value);
 
+            const resultadoRutRepetido =
+                validarRutRepetido(rut.value);
+
             const resultadoNombre =
                 validarNombre(
                     nombre.value
@@ -813,6 +881,11 @@ document.addEventListener("DOMContentLoaded", function () {
             const resultadoCorreo =
                 validarCorreo(
                     correo.value
+                );
+
+            const resultadoFechaNacimiento =
+                validarFechaNacimiento(
+                    fechaNacimiento.value
                 );
 
             const resultadoRegion =
@@ -847,7 +920,9 @@ document.addEventListener("DOMContentLoaded", function () {
             mostrarResultado(
                 rut,
                 errorRut,
-                resultadoRut
+                !resultadoRut.valido
+                    ? resultadoRut
+                    : resultadoRutRepetido
             );
 
             mostrarResultado(
@@ -866,6 +941,12 @@ document.addEventListener("DOMContentLoaded", function () {
                 correo,
                 errorCorreo,
                 resultadoCorreo
+            );
+
+            mostrarResultado(
+                fechaNacimiento,
+                errorFechaNacimiento,
+                resultadoFechaNacimiento
             );
 
             mostrarResultado(
@@ -901,9 +982,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
             if (
                 resultadoRut.valido &&
+                resultadoRutRepetido.valido &&
                 resultadoNombre.valido &&
                 resultadoApellidos.valido &&
                 resultadoCorreo.valido &&
+                resultadoFechaNacimiento.valido &&
                 resultadoRegion.valido &&
                 resultadoComuna.valido &&
                 resultadoDireccion.valido &&
@@ -911,15 +994,49 @@ document.addEventListener("DOMContentLoaded", function () {
                 resultadoConfirmacion.valido
             ) {
 
+                const usuariosGuardados =
+                    localStorage.getItem("usuarios");
+
+                const usuarios = usuariosGuardados
+                    ? JSON.parse(usuariosGuardados)
+                    : [];
+
+                const nuevoUsuario = {
+                    rut: rut.value.trim().toUpperCase(),
+                    nombre: nombre.value.trim(),
+                    apellidos: apellidos.value.trim(),
+                    correo: correo.value.trim().toLowerCase(),
+                    fechaNacimiento: fechaNacimiento.value,
+                    tipoUsuario: "Cliente",
+                    region: region.value,
+                    comuna: comuna.value,
+                    direccion: direccion.value.trim()
+                };
+
+                usuarios.push(nuevoUsuario);
+
+                localStorage.setItem(
+                    "usuarios",
+                    JSON.stringify(usuarios)
+                );
+
+                localStorage.setItem(
+                    "clienteActivo",
+                    JSON.stringify({
+                        nombre: `${nuevoUsuario.nombre} ${nuevoUsuario.apellidos}`,
+                        correo: nuevoUsuario.correo
+                    })
+                );
+
                 mensajeRegistro.textContent =
                     "Cuenta creada correctamente.";
 
                 mensajeRegistro.className =
                     "alert alert-success mt-3";
 
-                console.log(
-                    "Registro válido"
-                );
+                setTimeout(function () {
+                    window.location.href = "login.html";
+                }, 1000);
 
             }
 
@@ -927,3 +1044,6 @@ document.addEventListener("DOMContentLoaded", function () {
     );
 
 });
+
+
+

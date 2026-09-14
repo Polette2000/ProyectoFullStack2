@@ -294,10 +294,13 @@
 
                             <input type="date"
                                 class="form-control"
-                                id="fechaNacimiento">
+                                id="fechaNacimiento"
+                                required>
+
+                            <div class="invalid-feedback" id="errorFechaNacimiento"></div>
 
                             <div class="form-text">
-                                Campo opcional.
+Debe tener 18 años o más.
                             </div>
 
                         </div>
@@ -455,8 +458,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <!-- JS -->
-    <script src="../js/usuario-form.js"></script>
+    <script src="../js/usuario-form.js?v=fecha-1"></script>
 
 </body>
 
 </html>
+
+
+

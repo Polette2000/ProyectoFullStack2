@@ -1,0 +1,52 @@
+/* PERFULANDIA ESTILOS GENERALES */
+:root {
+    --rosa-principal: #d9a7b0;
+    --rosa-oscuro: #bf8792;
+    --rosa-claro: #f7e8eb;
+    --beige: #f4efe7;
+    --beige-claro: #faf8f4;
+    --gris-claro: #f2f2f2;
+    --gris: #777777;
+    --texto: #3f3f3f;
+    --blanco: #ffffff;
+}
+
+
+/* GENERAL */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+    color: var(--texto);
+    background-color: var(--blanco);
+}
+
+h1,
+h2,
+h3 {
+    font-weight: 600;
+}
+
+a {
+    text-decoration: none;
+}
+
+
+/* TITULOS SECCIONES */
+.section-subtitulo {
+    color: var(--rosa-oscuro);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.section-descripcion {
+    color: var(--gris);
+}

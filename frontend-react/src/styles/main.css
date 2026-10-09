@@ -1,0 +1,15 @@
+/* CSS original de Perfulandia, organizado por área. */
+@import './global.css';
+@import './navbar.css';
+@import './buttons.css';
+@import './carrito.css';
+@import './inicio.css';
+@import './productos.css';
+@import './detalle.css';
+@import './nosotros.css';
+@import './contacto.css';
+@import './login.css';
+@import './registro.css';
+@import './blog.css';
+@import './banner.css';
+@import './footer.css';

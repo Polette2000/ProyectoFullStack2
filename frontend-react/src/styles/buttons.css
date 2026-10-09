@@ -1,0 +1,32 @@
+/* BOTONES */
+.btn-perfulandia {
+    background-color: var(--rosa-principal);
+    border: 1px solid var(--rosa-principal);
+    color: var(--blanco);
+    border-radius: 30px;
+    padding-left: 25px;
+    padding-right: 25px;
+    transition: 0.3s;
+}
+
+.btn-perfulandia:hover {
+    background-color: var(--rosa-oscuro);
+    border-color: var(--rosa-oscuro);
+    color: var(--blanco);
+}
+
+.btn-outline-perfulandia {
+    font-size: 1.05rem;
+    background-color: transparent;
+    border: 1px solid var(--rosa-principal);
+    color: var(--rosa-oscuro);
+    border-radius: 30px;
+    padding-left: 22px;
+    padding-right: 22px;
+    transition: 0.3s;
+}
+
+.btn-outline-perfulandia:hover {
+    background-color: var(--rosa-principal);
+    color: var(--blanco);
+}

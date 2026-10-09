@@ -1,0 +1,159 @@
+/* HERO */
+.hero {
+    background-color: var(--beige-claro);
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.min-vh-75 {
+    min-height: 70vh;
+}
+
+.hero-subtitulo {
+    color: var(--rosa-oscuro);
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+.hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4.6rem);
+    line-height: 1.05;
+    margin-top: 15px;
+    margin-bottom: 25px;
+}
+
+.hero-descripcion {
+    max-width: 520px;
+    font-size: 1.1rem;
+    color: var(--gris);
+    line-height: 1.8;
+    margin-bottom: 30px;
+}
+
+.hero-imagen {
+    background-color: var(--rosa-claro);
+    padding: 20px;
+    border-radius: 40px;
+}
+
+.hero-imagen img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+/* BENEFICIOS */
+.beneficios {
+    background-color: var(--blanco);
+}
+
+.beneficio {
+    padding: 30px;
+}
+
+.beneficio i {
+    font-size: 2rem;
+    color: var(--rosa-oscuro);
+}
+
+.beneficio h3 {
+    margin-top: 15px;
+    font-size: 1.2rem;
+}
+
+.beneficio p {
+    color: var(--gris);
+}
+
+
+/* NOSOTROS HOME */
+.home-nosotros {
+    background-color: var(--rosa-claro);
+}
+
+.imagen-nosotros {
+    width: 100%;
+    max-height: 480px;
+    object-fit: cover;
+    border-radius: 30px;
+}
+
+
+/* RESPONSIVE */
+@media (max-width: 991px) {
+    .hero {
+        text-align: center;
+    }
+    .hero-descripcion {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .hero-texto .d-flex {
+        justify-content: center;
+    }
+    .hero-imagen img {
+        height: 420px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero-imagen img {
+        height: 350px;
+    }
+}
+
+
+/* BANNER HOME / CARRUSEL */
+.banner-home {
+    background-color: var(--beige-claro);
+}
+
+.banner-img {
+    width: 100%;
+    height: 720px;
+    object-fit: cover;
+}
+
+.carousel-indicators [data-bs-target] {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: var(--rosa-principal);
+    opacity: 0.6;
+}
+
+.carousel-indicators .active {
+    opacity: 1;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.25);
+    border-radius: 50%;
+    padding: 20px;
+}
+
+@media (max-width: 992px) {
+    .banner-img {
+        height: 500px;
+        object-fit: cover;
+    }
+}
+
+@media (max-width: 576px) {
+    .banner-img {
+        height: 300px;
+        object-fit: cover;
+    }
+}
